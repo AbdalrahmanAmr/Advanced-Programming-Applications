@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+// Base entity for shared person identity and contact fields.
 public abstract class Person {
 
     @Id

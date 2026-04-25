@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+// Handles login page rendering and basic login form submission.
 public class Login{
     private final LoginValidation loginValidation;
 
@@ -24,7 +25,7 @@ public class Login{
     if (!loginValidation.validateLogin(patient)) {
         return "Login";
     }
-    return "Dashboard";
+    return "PatientDashboard";
 }
 
 }

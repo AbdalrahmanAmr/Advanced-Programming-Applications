@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+// Represents a patient account and related medical booking data.
 public class Patient extends Person {
     @Column
     private  String username;

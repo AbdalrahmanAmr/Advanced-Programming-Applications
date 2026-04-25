@@ -3,6 +3,7 @@ package dev.mr3.sb.model;
 import jakarta.persistence.*;
 
 @Entity
+// Represents injury details reported by an athlete/patient.
 public class Injury {
 
     @Id

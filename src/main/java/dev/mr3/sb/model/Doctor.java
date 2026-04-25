@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
+// Represents a doctor profile with specialty details.
 public class Doctor extends Person {
     @Column
     private  String specialty;
