@@ -4,40 +4,38 @@ import jakarta.persistence.*;
 
 
 @Entity
-// Stores a patient's appointment slot (weekday and time).
 public class Appointment {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long AppointmentId;
     @Column
     @Enumerated(EnumType.STRING)
-    private  Weekday weekday;
+    private Weekday weekday;
     @Column
-    private String time;
+    private String Appointment;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    //One-to-One with Report (nullable)
 
 
     public Appointment() {
     }
-    public Appointment(Weekday weekday, String time) {
+    public Appointment(Weekday weekday, String Appointment) {
         this.weekday = weekday;
-        this.time = time;
+        this.Appointment = Appointment;
     }
     public Long getId() {
-        return id;
+        return AppointmentId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long AppointmentId) {
+        this.AppointmentId = AppointmentId;
     }
     public Weekday getWeekday() {
         return weekday;
     }
     public void setWeekday(Weekday weekday) {
         this.weekday = weekday;
-    }
-    public String getTime() {
-        return time;
-    }
-    public void setTime(String time) {
-        this.time = time;
     }
 }

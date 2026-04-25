@@ -1,8 +1,8 @@
 package dev.mr3.sb.controller;
 
 
-import dev.mr3.sb.model.Patient;
-import dev.mr3.sb.service.LoginValidation;
+import dev.mr3.sb.model.User;
+import dev.mr3.sb.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 // Handles login page rendering and basic login form submission.
 public class Login{
-    private final LoginValidation loginValidation;
+    private final UserService userService;
 
-    Login(LoginValidation loginValidation){
-        this.loginValidation=loginValidation;
+    Login(UserService userService){
+        this.userService = userService;
     }
     @GetMapping("/login")
     public String loginPage() {
@@ -21,8 +21,8 @@ public class Login{
     }
 
 @PostMapping("/login")
-    public String login(Patient patient) {
-    if (!loginValidation.validateLogin(patient)) {
+    public String login(User user) {
+    if (!userService.validateLogin(user)) {
         return "Login";
     }
     return "PatientDashboard";

@@ -1,5 +1,7 @@
 package dev.mr3.sb.repository;
 
-// TODO: Convert to a Spring Data repository for Doctor persistence.
-public class DoctorRepository {
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DoctorRepository extends JpaRepository<SecurityProperties.User, Long> {
 }

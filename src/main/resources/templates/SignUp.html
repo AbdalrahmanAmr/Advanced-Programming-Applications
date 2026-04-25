@@ -12,10 +12,13 @@
     <h1>Sign Up</h1>
     <form action="/signup" method="post">
         <label for="username">Username:</label>
-        <input type="text" minlength="5" id="username" name="username" required><br><br>
+        <input type="text" minlength="5" slotsId="username" name="username" required><br><br>
         <label for="password">Password:</label>
-        <input type="password" minlength="6" id="password" name="password" required><br><br>
+        <input type="password" minlength="6" slotsId="password" name="password" required><br><br>
         <button class="btn" type="submit">Sign Up</button>
+        <label for="isDoctor">Are you a doctor?</label>
+        <input type="checkbox" name="isDoctor" value="true"/>
+        <input type="hidden" name="isDoctor" value="false"/>
     </form>
     </div>
 </body>
