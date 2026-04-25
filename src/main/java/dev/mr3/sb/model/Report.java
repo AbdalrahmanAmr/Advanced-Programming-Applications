@@ -17,7 +17,7 @@ public class Report {
     @Column
     private String treatmentSuggestion;
 
-    @ManyToOne
+    @OneToOne
 //    @JoinColumn(name = "appointment_id", nullable = false)
     private Appointment appointment;
 

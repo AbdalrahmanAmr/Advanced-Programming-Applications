@@ -1,6 +1,7 @@
 package dev.mr3.sb.model;
-
+import java.util.List;
 import jakarta.persistence.*;
+
 
 
 @Entity
@@ -16,9 +17,15 @@ public class Appointment {
     @Column
     @Enumerated(EnumType.STRING)
     private Status status;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private User patient; // User where isDoctor = false
 
-    //One-to-One with Report (nullable)
-
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private User doctor;
+    @OneToOne(mappedBy = "appointment")
+    private Report report;
 
     public Appointment() {
     }
