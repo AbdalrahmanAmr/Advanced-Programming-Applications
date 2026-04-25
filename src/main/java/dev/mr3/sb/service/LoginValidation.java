@@ -4,6 +4,7 @@ import dev.mr3.sb.model.Patient;
 import org.springframework.stereotype.Service;
 
 @Service
+// Performs basic input-level validation for login requests.
 public class LoginValidation {
     public boolean validateLogin(Patient patient) {
         System.out.println("Patient object: " + patient);
@@ -36,6 +37,7 @@ public class LoginValidation {
         }
 
         System.out.println("Validation passed!");
+        // if patient are stored in database,
         return true;
     }
 }

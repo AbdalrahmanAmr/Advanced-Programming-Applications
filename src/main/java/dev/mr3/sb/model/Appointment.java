@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
+// Stores a patient's appointment slot (weekday and time).
 public class Appointment {
     @Id
     @GeneratedValue

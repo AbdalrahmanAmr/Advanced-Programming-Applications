@@ -3,65 +3,72 @@ package dev.mr3.sb.model;
 import jakarta.persistence.*;
 
 @Entity
+// Stores a medical report that links patient, injury, and appointment.
 public class Report {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    //still need to add retaltionship with
-    // patient
-    // injury
-    // treatment
-    // appointment
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+//    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "injury_id")
+//    @JoinColumn(name = "injury_id", nullable = false)
     private Injury injury;
 
-    @ManyToOne
-    @JoinColumn(name = "treatment_id")
-    private Treatment treatment;
+    @Column(columnDefinition = "TEXT")
+    private String treatmentSuggestion;
 
     @ManyToOne
-    @JoinColumn(name = "appointment_id")
+//    @JoinColumn(name = "appointment_id", nullable = false)
     private Appointment appointment;
 
+    // No-arg constructor
     public Report() {
     }
-    public Report(Patient patient, Injury injury, Treatment treatment, Appointment appointment) {
+
+    // Full constructor
+    public Report(Patient patient, Injury injury, String treatmentSuggestion, Appointment appointment) {
         this.patient = patient;
         this.injury = injury;
-        this.treatment = treatment;
+        this.treatmentSuggestion = treatmentSuggestion;
         this.appointment = appointment;
     }
+
     public Long getId() {
         return id;
     }
+
     public Patient getPatient() {
         return patient;
     }
+
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
     public Injury getInjury() {
         return injury;
     }
+
     public void setInjury(Injury injury) {
         this.injury = injury;
     }
-    public Treatment getTreatment() {
-        return treatment;
+
+    public String getTreatmentSuggestion() {
+        return treatmentSuggestion;
     }
-    public void setTreatment(Treatment treatment) {
-        this.treatment = treatment;
+
+    public void setTreatmentSuggestion(String treatmentSuggestion) {
+        this.treatmentSuggestion = treatmentSuggestion;
     }
+
     public Appointment getAppointment() {
         return appointment;
     }
+
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
