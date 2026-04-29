@@ -11,10 +11,17 @@ public class Appointment {
     private Long id;
     @Column
     @Enumerated(EnumType.STRING)
-    private  Weekday weekday;
+    private Weekday weekday;
     @Column
     private String time;
 
+    @ManyToOne
+//    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+    @ManyToOne
+//    @JoinColumn(name = "patient_id")
+    private Patient patient;
 
     public Appointment() {
     }

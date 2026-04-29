@@ -1,27 +1,33 @@
 package dev.mr3.sb.model;
 
+import dev.mr3.sb.model.Appointment;
+import dev.mr3.sb.model.Person;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
-// Represents a doctor profile with specialty details.
+@DiscriminatorValue("DOCTOR")
 public class Doctor extends Person {
     @Column
-    private  String specialty;
+    private String specialty;
 
-    public Doctor() {
-    }
-    public Doctor(String name, int age, boolean gender, String contact_no, String address, String specialty) {
-        super(name, age, gender, contact_no, address);
-        this.specialty = specialty;
+    @Column
+    private String licenseNumber;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointmentsAsDoctor;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<Slot> slots;
+
+    @Override
+    public String getRole() {
+        return "DOCTOR";
     }
 
-    public String getSpecialty() {
-        return specialty;
-    }
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
-    }
+    // Doctor-specific methods and getters/setters...
 }
