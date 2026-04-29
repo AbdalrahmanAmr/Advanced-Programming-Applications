@@ -1,27 +1,24 @@
 package dev.mr3.sb.model;
 
+import dev.mr3.sb.model.Person;
 import jakarta.persistence.*;
 
 @Entity
-// Stores a medical report that links patient, injury, and appointment.
+// Stores a medical report that links user, injury, and appointment.
 public class Report {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long ReportId;
 
     @ManyToOne
 //    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+    private Person user;
 
-    @ManyToOne
-//    @JoinColumn(name = "injury_id", nullable = false)
-    private Injury injury;
-
-    @Column(columnDefinition = "TEXT")
+    @Column
     private String treatmentSuggestion;
 
-    @ManyToOne
+    @OneToOne
 //    @JoinColumn(name = "appointment_id", nullable = false)
     private Appointment appointment;
 
@@ -30,45 +27,30 @@ public class Report {
     }
 
     // Full constructor
-    public Report(Patient patient, Injury injury, String treatmentSuggestion, Appointment appointment) {
-        this.patient = patient;
-        this.injury = injury;
+    public Report(Person user, String treatmentSuggestion, Appointment appointment) {
+        this.user = user;
         this.treatmentSuggestion = treatmentSuggestion;
         this.appointment = appointment;
     }
 
-    public Long getId() {
-        return id;
+    public Long getReportId() {
+        return ReportId;
     }
-
-    public Patient getPatient() {
-        return patient;
+    public Person getPatient() {
+        return user;
     }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatient(Person user) {
+        this.user = user;
     }
-
-    public Injury getInjury() {
-        return injury;
-    }
-
-    public void setInjury(Injury injury) {
-        this.injury = injury;
-    }
-
     public String getTreatmentSuggestion() {
         return treatmentSuggestion;
     }
-
     public void setTreatmentSuggestion(String treatmentSuggestion) {
         this.treatmentSuggestion = treatmentSuggestion;
     }
-
     public Appointment getAppointment() {
         return appointment;
     }
-
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
