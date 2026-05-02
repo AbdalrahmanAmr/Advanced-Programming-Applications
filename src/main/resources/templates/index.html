@@ -1,28 +1,86 @@
-<!-- Landing page that routes users to login or sign-up flows. -->
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment System</title>
     <link rel="stylesheet" href="/style.css">
-    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .button-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-login {
+            background: white;
+            color: #667eea;
+        }
+        .btn-login:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn-signup {
+            background: #667eea;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-signup:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to our Website</h1>
-<div>
-    <p>This is the home page of our website. Feel free to explore and learn more about what we have to offer.</p>
-</div>
-<div >
-    <span>Have an account? <br>
-        <a href="/login">
-            <button class="btn btn-red">Login</button>
-        </a>
-    </span><br>
-    <span> Create new account? <br>
-        <a href="/signup">
-            <button class="btn btn-blue">Sign up</button>
-        </a>
-    </span>
-
-</div>
+    <div class="container">
+        <h1>Appointment System</h1>
+        <p>Manage your appointments with ease</p>
+        
+        <div class="button-group">
+            <a th:href="@{/user/login}" class="btn btn-login">Login</a>
+            <a th:href="@{/user/register}" class="btn btn-signup">Sign Up</a>
+        </div>
+    </div>
 </body>
 </html>

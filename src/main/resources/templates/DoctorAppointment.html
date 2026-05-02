@@ -1,20 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body { font-family: Arial; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 900px; margin: 0 auto; }
+        h1 { color: #333; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f0f0f0; font-weight: bold; }
+        tr:hover { background: #f9f9f9; }
+        .btn { padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #764ba2; }
+        .no-appointments { text-align: center; color: #999; padding: 40px; }
+        .navbar { background: #333; color: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; display: flex; justify-content: space-between; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    </style>
 </head>
 <body>
-// we will diffrentiate between past and upcoming appointments according reporst existance
-// all report will be sorted by date
-// loop for all appointments
-// button for show details of each appointment
-// button for canceling the appointment
-// button for showing the report of the appointment
-// alert for write the report of the appointment
-// <button> write report </button>//and onclick show textarea for writing the report and submit button to save the report
-// <button> cancel </button>
-// <button> show report </button>
-<button> logout </button>
+    <div class="navbar">
+        <div>Patient Appointments</div>
+        <div><a th:href="@{/dashboard}">Dashboard</a> <a th:href="@{/user/logout}">Logout</a></div>
+    </div>
+    
+    <div class="container">
+        <h1>Upcoming Appointments</h1>
+        
+        <div class="no-appointments" th:if="${appointments.isEmpty()}">
+            <p>No appointments scheduled.</p>
+        </div>
+        
+        <table th:if="${!appointments.isEmpty()}">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="appt : ${appointments}">
+                    <td th:text="${appt.patient.firstName + ' ' + appt.patient.lastName}"></td>
+                    <td th:text="${appt.weekday}"></td>
+                    <td th:text="${appt.appointmentTime}"></td>
+                    <td th:text="${appt.status}"></td>
+                    <td>
+                        <a th:href="@{/reports/write/{id}(id=${appt.appointmentId})}" class="btn">Write Report</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
