@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report View</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body { font-family: Arial; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 600px; margin: 0 auto; }
+        h1 { color: #333; margin-bottom: 30px; }
+        .report-section { background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .report-label { font-weight: bold; color: #555; margin-bottom: 5px; }
+        .report-value { color: #333; margin-bottom: 15px; }
+        .navbar { background: #333; color: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; display: flex; justify-content: space-between; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    </style>
 </head>
 <body>
-
+    <div class="navbar">
+        <div>Medical Report</div>
+        <div><a th:href="@{/dashboard}">Dashboard</a> <a th:href="@{/user/logout}">Logout</a></div>
+    </div>
+    
+    <div class="container">
+        <h1>Medical Report</h1>
+        
+        <div class="report-section">
+            <div class="report-label">Diagnosis:</div>
+            <div class="report-value" th:text="${report.diagnosis}"></div>
+        </div>
+        
+        <div class="report-section">
+            <div class="report-label">Treatment:</div>
+            <div class="report-value" th:text="${report.treatment}"></div>
+        </div>
+        
+        <div class="report-section">
+            <div class="report-label">Notes:</div>
+            <div class="report-value" th:text="${report.notes}"></div>
+        </div>
+        
+        <a th:href="@{/dashboard}" style="display: inline-block; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 5px;">Back to Dashboard</a>
+    </div>
 </body>
 </html>

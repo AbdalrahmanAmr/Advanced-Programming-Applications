@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body { font-family: Arial; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 900px; margin: 0 auto; }
+        h1 { color: #333; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f0f0f0; }
+        tr:hover { background: #f9f9f9; }
+        .btn { padding: 8px 15px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background: #764ba2; }
+        .no-reports { text-align: center; color: #999; padding: 40px; }
+        .navbar { background: #333; color: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; display: flex; justify-content: space-between; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    </style>
 </head>
 <body>
-//Doctor lists all reports
+    <div class="navbar">
+        <div>My Reports</div>
+        <div><a th:href="@{/dashboard}">Dashboard</a> <a th:href="@{/user/logout}">Logout</a></div>
+    </div>
+    
+    <div class="container">
+        <h1>Medical Reports</h1>
+        
+        <div class="no-reports" th:if="${reports.isEmpty()}">
+            <p>No reports written yet.</p>
+        </div>
+        
+        <table th:if="${!reports.isEmpty()}">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="report : ${reports}">
+                    <td th:text="${report.appointment.patient.firstName + ' ' + report.appointment.patient.lastName}"></td>
+                    <td th:text="${report.diagnosis}"></td>
+                    <td th:text="${report.treatment}"></td>
+                    <td><a th:href="@{/reports/{id}(id=${report.reportId})}" class="btn">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
