@@ -1,4 +1,7 @@
 package dev.mr3.sb.repository;
 
-public class SlotRepository {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SlotRepository {
 }

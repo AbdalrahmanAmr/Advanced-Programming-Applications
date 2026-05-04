@@ -1,16 +1,13 @@
 package dev.mr3.sb.service;
 
-// TODO: Implement patient CRUD and coordination with related domain services.
+import org.springframework.stereotype.Service;
+
+@Service
 public class PatientService {
+
+// This service can be expanded to include business logic related to patients, such as:}
+    // - Registering new patients
+    // - Updating patient profiles
+    // - Retrieving patient information
+    // - Managing patient-doctor relationships
 }
-// it is a service class for patient related operations
-// such as creating
-// updating
-// deleting
-// retrieving patient information.
-// It will interact with the PatientRepository
-// to perform database operations
-// may also interact with other services
-// such as DoctorService and ReportService
-// to manage relationships between patients,
-// doctors and reports.

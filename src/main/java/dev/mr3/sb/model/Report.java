@@ -1,57 +1,66 @@
 package dev.mr3.sb.model;
 
-import dev.mr3.sb.model.Person;
 import jakarta.persistence.*;
 
 @Entity
-// Stores a medical report that links user, injury, and appointment.
 public class Report {
-
     @Id
     @GeneratedValue
-    private Long ReportId;
+    private Long reportId;
 
-    @ManyToOne
-//    @JoinColumn(name = "patient_id", nullable = false)
-    private Person user;
-
-    @Column
-    private String treatmentSuggestion;
+    @Column(columnDefinition = "TEXT")
+    private String notes;
 
     @OneToOne
-//    @JoinColumn(name = "appointment_id", nullable = false)
+    @JoinColumn(name = "appointment_id", nullable = false, unique = true)
     private Appointment appointment;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private Doctor doctor;
 
     // No-arg constructor
     public Report() {
     }
 
     // Full constructor
-    public Report(Person user, String treatmentSuggestion, Appointment appointment) {
-        this.user = user;
-        this.treatmentSuggestion = treatmentSuggestion;
+    public Report(Appointment appointment, String notes) {
         this.appointment = appointment;
+        this.notes = notes;
     }
 
+    // Getters and Setters
     public Long getReportId() {
-        return ReportId;
+        return reportId;
     }
-    public Person getPatient() {
-        return user;
+    public void setReportId(Long reportId) {
+        this.reportId = reportId;
     }
-    public void setPatient(Person user) {
-        this.user = user;
-    }
-    public String getTreatmentSuggestion() {
-        return treatmentSuggestion;
-    }
-    public void setTreatmentSuggestion(String treatmentSuggestion) {
-        this.treatmentSuggestion = treatmentSuggestion;
-    }
+
     public Appointment getAppointment() {
         return appointment;
     }
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
+
+    public String getNotes() {
+        return notes;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+    public Doctor getDoctor() {
+        return doctor;
+    }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+//    public Patient getPatient() {
+//        if (appointment != null) {
+//            return appointment.getPatient();
+//        }
+//        return null;
+//    }
 }

@@ -5,19 +5,6 @@ import jakarta.persistence.*;
 @Entity
 public class Slot {
     @Id
-    @GeneratedValue
-    private Long slotId;
+    private Long id;
 
-    @ManyToOne  // NEW: Reference to Doctor
-//    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Weekday weekday;
-
-    @Column
-    private int availableCount;
-
-    // Getters/setters...
 }

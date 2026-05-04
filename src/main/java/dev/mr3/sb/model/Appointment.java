@@ -2,38 +2,49 @@ package dev.mr3.sb.model;
 
 import jakarta.persistence.*;
 
-
 @Entity
-// Stores a patient's appointment slot (weekday and time).
 public class Appointment {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long appointmentId;
+
     @Column
     @Enumerated(EnumType.STRING)
     private Weekday weekday;
+
     @Column
-    private String time;
+    private String appointmenttime;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @ManyToOne
-//    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
     @ManyToOne
-//    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    public Appointment() {
-    }
-    public Appointment(Weekday weekday, String time) {
+    @OneToOne(mappedBy = "appointment")
+    private Report report;
+
+    public Appointment() {}
+
+    public Appointment(Weekday weekday, String appointmenttime, Status status, Doctor doctor, Patient patient) {
         this.weekday = weekday;
-        this.time = time;
+        this.appointmenttime = appointmenttime;
+        this.status = status;
+        this.doctor = doctor;
+        this.patient = patient;
     }
-    public Long getId() {
-        return id;
+
+    public Long getAppointmentId() {
+        return appointmentId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
     }
     public Weekday getWeekday() {
         return weekday;
@@ -41,10 +52,34 @@ public class Appointment {
     public void setWeekday(Weekday weekday) {
         this.weekday = weekday;
     }
-    public String getTime() {
-        return time;
+    public String getAppointmenttime() {
+        return appointmenttime;
     }
-    public void setTime(String time) {
-        this.time = time;
+    public void setAppointmenttime(String appointmenttime) {
+        this.appointmenttime = appointmenttime;
+    }
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    public Doctor getDoctor() {
+        return doctor;
+    }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+    public Patient getPatient() {
+        return patient;
+    }
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    public Report getReport() {
+        return report;
+    }
+    public void setReport(Report report) {
+        this.report = report;
     }
 }
