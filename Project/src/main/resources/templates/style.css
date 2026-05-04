@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    font-family: Arial;
+}
+
+a {
+    display: block;
+    margin: 10px;
+}
+
+input, select {
+    margin: 5px;
+}

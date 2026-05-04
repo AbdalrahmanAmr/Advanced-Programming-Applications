@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Slots</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h2>Add Slots</h2>
+
+<form th:action="@{/saveSlot}" th:object="${slot}" method="post">
+
+    <select th:field="*{weekday}">
+        <option value="MONDAY">Monday</option>
+        <option value="TUESDAY">Tuesday</option>
+    </select>
+
+    <input type="number" th:field="*{availableCount}" placeholder="عدد المواعيد">
+
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
