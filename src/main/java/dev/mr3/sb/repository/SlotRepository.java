@@ -1,4 +1,7 @@
-package dev.mr3.sb.repository;
+package com.example.Project.repository;
 
-public class SlotRepository {
+import com.example.Project.model.Slots;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SlotsRepository extends JpaRepository<Slots, Long> {
 }

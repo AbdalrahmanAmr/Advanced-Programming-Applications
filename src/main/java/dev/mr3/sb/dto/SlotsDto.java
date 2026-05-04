@@ -1,20 +1,9 @@
-package com.example.Project.model;
+package com.example.Project.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-public class Slots {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class SlotsDto {
 
     private String weekday;
     private int availableCount;
-
-    public Long getId() {
-        return id;
-    }
 
     public String getWeekday() {
         return weekday;
