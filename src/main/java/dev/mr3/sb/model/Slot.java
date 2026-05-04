@@ -1,9 +1,9 @@
-package com.example.Project.model;
+package dev.mr3.sb.model;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Slots {
+public class Slot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

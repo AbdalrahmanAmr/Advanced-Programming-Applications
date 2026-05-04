@@ -1,4 +1,4 @@
-package com.example.Project.dto;
+package dev.mr3.sb.dto;
 
 public class SlotsDto {
 

@@ -1,7 +1,6 @@
-package com.example.Project.controller;
+package dev.mr3.sb.controller;
 
-import com.example.Project.dto.SlotsDto;
-import com.example.Project.service.SlotService;
+import dev.mr3.sb.dto.SlotsDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SlotsController {
 
-    private final SlotService service;
+    private final dev.mr3.sb.service.SlotService service;
 
-    public SlotsController(SlotService service) {
+    public SlotsController(dev.mr3.sb.service.SlotService service) {
         this.service = service;
     }
 

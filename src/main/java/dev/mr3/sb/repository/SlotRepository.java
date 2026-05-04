@@ -1,7 +1,7 @@
-package com.example.Project.repository;
+package dev.mr3.sb.repository;
 
-import com.example.Project.model.Slots;
+import dev.mr3.sb.model.Slot;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SlotsRepository extends JpaRepository<Slots, Long> {
+public interface SlotRepository extends JpaRepository<Slot, Long> {
 }
