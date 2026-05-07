@@ -1,7 +1,16 @@
 package dev.mr3.sb.Dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class ReportDto {
+
+    @NotNull(message = "Appointment ID is required")
     private Long appointmentId;
+
+    @NotBlank(message = "Report notes cannot be empty")
+    @Size(min = 10, max = 5000, message = "Notes must be between 10 and 5000 characters")
     private String notes;
 
     public ReportDto() {}

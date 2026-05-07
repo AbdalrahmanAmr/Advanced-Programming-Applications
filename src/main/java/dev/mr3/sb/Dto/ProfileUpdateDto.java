@@ -1,10 +1,27 @@
 package dev.mr3.sb.Dto;
 
+import jakarta.validation.constraints.*;
+
 public class ProfileUpdateDto {
+
+    @NotBlank(message = "First name is required")
+    @Size(min = 2, max = 50, message = "First name must be between 2 and 50 characters")
     private String firstName;
+
+    @NotBlank(message = "Last name is required")
+    @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
     private String lastName;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Please provide a valid email address")
     private String email;
+
+    @NotBlank(message = "Phone number is required")
+    @Pattern(regexp = "^[+]?[0-9]{7,15}$", message = "Please provide a valid phone number")
     private String phone;
+
+    @Min(value = 18, message = "Age must be at least 18")
+    @Max(value = 120, message = "Age cannot exceed 120")
     private int age;
 
     public ProfileUpdateDto() {}

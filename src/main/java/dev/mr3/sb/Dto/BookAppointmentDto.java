@@ -1,8 +1,17 @@
 package dev.mr3.sb.Dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class BookAppointmentDto {
+
+    @NotNull(message = "Please select a doctor")
     private Long doctorId;
+
+    @NotBlank(message = "Please select a day of the week")
     private String weekday;
+
+    @NotBlank(message = "Please provide an appointment time")
     private String appointmentTime;
 
     public BookAppointmentDto() {}
