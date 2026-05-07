@@ -5,37 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Appointment</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body { font-family: Arial; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
-        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 600px; margin: 0 auto; }
-        h1 { text-align: center; color: #333; margin-bottom: 30px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 5px; color: #555; font-weight: bold; }
-        select, input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        select:focus, input:focus { outline: none; border-color: #667eea; box-shadow: 0 0 5px rgba(102,126,234,0.5); }
-        button { width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-        button:hover { background: #764ba2; }
-        .error { color: red; margin-bottom: 20px; text-align: center; }
-        .navbar { background: #333; color: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; display: flex; justify-content: space-between; }
-        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-    </style>
 </head>
 <body>
     <div class="navbar">
         <div>Book Appointment</div>
-        <div><a th:href="@{/dashboard}">Dashboard</a> <a th:href="@{/user/logout}">Logout</a></div>
+        <div><a th:href="@{/patient/dashboard}">Dashboard</a> <a th:href="@{/auth/logout}">Logout</a></div>
     </div>
     
-    <div class="container">
+    <div class="container medium">
         <h1>Book an Appointment</h1>
         <div class="error" th:if="${error}" th:text="${error}"></div>
         
-        <form method="post" th:action="@{/appointments/book}">
+        <form method="post" th:action="@{/patient/appointments/book}">
             <div class="form-group">
                 <label for="doctorId">Select Doctor:</label>
                 <select id="doctorId" name="doctorId" required>
                     <option value="">-- Choose a doctor --</option>
-                    <option th:each="doctor : ${doctors}" th:value="${doctor.userId}" th:text="${doctor.firstName + ' ' + doctor.lastName}"></option>
+                    <option th:each="doctor : ${doctors}" th:value="${doctor.personId}" th:text="${doctor.firstName + ' ' + doctor.lastName}"></option>
                 </select>
             </div>
             
