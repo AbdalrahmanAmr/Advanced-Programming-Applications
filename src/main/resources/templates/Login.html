@@ -5,96 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #764ba2;
-        }
-        .signup-link {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .signup-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .signup-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
+<body style="display:flex;justify-content:center;align-items:center;">
+    <div class="container narrow">
+        <h1 class="center">Login</h1>
         
         <div class="error" th:if="${error}" th:text="${error}"></div>
         
-        <form method="post" th:action="@{/user/login}">
+        <form method="post" th:action="@{/auth/login}">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -109,7 +27,7 @@
         </form>
         
         <div class="signup-link">
-            Don't have an account? <a th:href="@{/user/register}">Sign Up</a>
+            Don't have an account? <a th:href="@{/auth/register}">Sign Up</a>
         </div>
     </div>
 </body>

@@ -5,159 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 500px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .form-row .form-group {
-            margin-bottom: 0;
-        }
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            margin-top: 5px;
-        }
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            margin: 0;
-            font-weight: normal;
-        }
-        .radio-group input[type="radio"] {
-            width: auto;
-            margin-right: 5px;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #764ba2;
-        }
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .login-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Sign Up</h1>
+<body style="display:flex;justify-content:center;align-items:center;">
+    <div class="container medium">
+        <h1 class="center">Sign Up</h1>
         
         <div class="error" th:if="${error}" th:text="${error}"></div>
         
-        <form method="post" th:action="@{/user/register}">
+        <!-- Account type selection determines which form is shown -->
+        <div class="form-group">
+            <label>Account Type:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="role" value="PATIENT" id="rolePatient" checked onclick="toggleRole()"> Patient
+                </label>
+                <label>
+                    <input type="radio" name="role" value="DOCTOR" id="roleDoctor" onclick="toggleRole()"> Doctor
+                </label>
+            </div>
+        </div>
+
+        <!-- Patient Registration Form -->
+        <form method="post" th:action="@{/auth/register/patient}" id="patientForm">
             <div class="form-row">
                 <div class="form-group">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" required>
+                    <label for="patFirstName">First Name:</label>
+                    <input type="text" id="patFirstName" name="firstName" required>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" required>
+                    <label for="patLastName">Last Name:</label>
+                    <input type="text" id="patLastName" name="lastName" required>
                 </div>
             </div>
             
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="patUsername">Username:</label>
+                <input type="text" id="patUsername" name="username" required>
             </div>
             
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="patEmail">Email:</label>
+                <input type="email" id="patEmail" name="email" required>
             </div>
             
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="patPassword">Password:</label>
+                <input type="password" id="patPassword" name="password" required>
             </div>
             
             <div class="form-row">
                 <div class="form-group">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" min="18" required>
+                    <label for="patAge">Age:</label>
+                    <input type="number" id="patAge" name="age" min="18" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" required>
+                    <label for="patPhone">Phone:</label>
+                    <input type="text" id="patPhone" name="phone" required>
                 </div>
             </div>
             
@@ -165,32 +68,95 @@
                 <label>Gender:</label>
                 <div class="radio-group">
                     <label>
-                        <input type="radio" name="gender" value="on" required> Male
+                        <input type="radio" name="gender" value="true" required> Male
                     </label>
                     <label>
-                        <input type="radio" name="gender" value="off" required> Female
+                        <input type="radio" name="gender" value="false" required> Female
                     </label>
+                </div>
+            </div>
+            
+            <button type="submit">Sign Up as Patient</button>
+        </form>
+
+        <!-- Doctor Registration Form -->
+        <form method="post" th:action="@{/auth/register/doctor}" id="doctorForm" style="display: none;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="docFirstName">First Name:</label>
+                    <input type="text" id="docFirstName" name="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="docLastName">Last Name:</label>
+                    <input type="text" id="docLastName" name="lastName">
                 </div>
             </div>
             
             <div class="form-group">
-                <label>Account Type:</label>
+                <label for="docUsername">Username:</label>
+                <input type="text" id="docUsername" name="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="docEmail">Email:</label>
+                <input type="email" id="docEmail" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label for="docPassword">Password:</label>
+                <input type="password" id="docPassword" name="password">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="docAge">Age:</label>
+                    <input type="number" id="docAge" name="age" min="18">
+                </div>
+                <div class="form-group">
+                    <label for="docPhone">Phone:</label>
+                    <input type="text" id="docPhone" name="phone">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Gender:</label>
                 <div class="radio-group">
                     <label>
-                        <input type="radio" name="isDoctor" value="off" checked required> Patient
+                        <input type="radio" name="gender" value="true"> Male
                     </label>
                     <label>
-                        <input type="radio" name="isDoctor" value="on" required> Doctor
+                        <input type="radio" name="gender" value="false"> Female
                     </label>
                 </div>
             </div>
             
-            <button type="submit">Sign Up</button>
+            <button type="submit">Sign Up as Doctor</button>
         </form>
         
         <div class="login-link">
-            Already have an account? <a th:href="@{/user/login}">Login</a>
+            Already have an account? <a th:href="@{/auth/login}">Login</a>
         </div>
     </div>
+
+    <script>
+        function toggleRole() {
+            var isDoctor = document.getElementById('roleDoctor').checked;
+            var patientForm = document.getElementById('patientForm');
+            var doctorForm = document.getElementById('doctorForm');
+            
+            if (isDoctor) {
+                patientForm.style.display = 'none';
+                doctorForm.style.display = 'block';
+                // Toggle required attributes
+                patientForm.querySelectorAll('input').forEach(function(input) { input.removeAttribute('required'); });
+                doctorForm.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"]').forEach(function(input) { input.setAttribute('required', ''); });
+            } else {
+                patientForm.style.display = 'block';
+                doctorForm.style.display = 'none';
+                patientForm.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"]').forEach(function(input) { input.setAttribute('required', ''); });
+                doctorForm.querySelectorAll('input').forEach(function(input) { input.removeAttribute('required'); });
+            }
+        }
+    </script>
 </body>
 </html>

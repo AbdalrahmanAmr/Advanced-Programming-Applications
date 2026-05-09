@@ -5,25 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Appointments</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body { font-family: Arial; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
-        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); max-width: 900px; margin: 0 auto; }
-        h1 { color: #333; margin-bottom: 30px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #f0f0f0; font-weight: bold; }
-        tr:hover { background: #f9f9f9; }
-        .btn { padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .btn:hover { background: #764ba2; }
-        .no-appointments { text-align: center; color: #999; padding: 40px; }
-        .navbar { background: #333; color: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; display: flex; justify-content: space-between; }
-        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-    </style>
 </head>
 <body>
     <div class="navbar">
         <div>My Appointments</div>
-        <div><a th:href="@{/dashboard}">Dashboard</a> <a th:href="@{/user/logout}">Logout</a></div>
+        <div><a th:href="@{/patient/dashboard}">Dashboard</a> <a th:href="@{/auth/logout}">Logout</a></div>
     </div>
     
     <div class="container">
@@ -31,33 +17,35 @@
         
         <div class="no-appointments" th:if="${appointments.isEmpty()}">
             <p>No appointments booked yet.</p>
-            <a th:href="@{/appointments/book}" class="btn">Book Now</a>
+            <a th:href="@{/patient/appointments/book}" class="btn">Book Now</a>
         </div>
         
-        <table th:if="${!appointments.isEmpty()}">
-            <thead>
-                <tr>
-                    <th>Doctor</th>
-                    <th>Day</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="appt : ${appointments}">
-                    <td th:text="${appt.doctor.firstName + ' ' + appt.doctor.lastName}"></td>
-                    <td th:text="${appt.weekday}"></td>
-                    <td th:text="${appt.appointmentTime}"></td>
-                    <td th:text="${appt.status}"></td>
-                    <td>
-                        <form method="post" th:action="@{/appointments/{id}/cancel(id=${appt.appointmentId})}" style="display:inline;">
-                            <button type="submit" class="btn" onclick="return confirm('Cancel this appointment?')">Cancel</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table th:if="${!appointments.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="appt : ${appointments}">
+                        <td th:text="${appt.doctor.firstName + ' ' + appt.doctor.lastName}"></td>
+                        <td th:text="${appt.weekday}"></td>
+                        <td th:text="${appt.appointmenttime}"></td>
+                        <td th:text="${appt.status}"></td>
+                        <td>
+                            <form method="post" th:action="@{/patient/appointments/{id}/cancel(id=${appt.appointmentId})}" class="inline-form">
+                                <button type="submit" class="btn btn-red" onclick="return confirm('Cancel this appointment?')">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

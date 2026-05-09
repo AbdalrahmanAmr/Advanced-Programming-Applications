@@ -5,111 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
-        .navbar {
-            background: #333;
-            color: white;
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar a, .navbar span {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-        }
-        .navbar a:hover {
-            color: #667eea;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
-        .welcome-section {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-        }
-        .actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .action-btn {
-            display: inline-block;
-            padding: 15px 25px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
-        }
-        .action-btn:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.5);
-        }
-        h2 {
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .info-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid #667eea;
-        }
-        .info-label {
-            font-size: 12px;
-            color: #999;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .info-value {
-            font-size: 18px;
-            color: #333;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
     <div class="navbar">
         <div>
-            <span th:text="'Welcome, ' + ${user.firstName}"></span>
+            <span th:text="'Welcome, ' + ${patient.firstName}"></span>
         </div>
         <div>
-            <a th:href="@{/user/profile/{id}(id=${user.userId})}">My Profile</a>
-            <a th:href="@{/user/logout}">Logout</a>
+            <a th:href="@{/patient/profile/{id}(id=${patient.personId})}">My Profile</a>
+            <a th:href="@{/auth/logout}">Logout</a>
         </div>
     </div>
     
@@ -117,30 +21,30 @@
         <h1>Patient Dashboard</h1>
         
         <div class="welcome-section">
-            <p>Welcome back, <strong th:text="${user.firstName}"></strong>! Here you can manage your appointments and view your medical information.</p>
+            <p>Welcome back, <strong th:text="${patient.firstName}"></strong>! Here you can manage your appointments and view your medical information.</p>
         </div>
         
         <div class="info-grid">
             <div class="info-box">
                 <div class="info-label">Email</div>
-                <div class="info-value" th:text="${user.email}"></div>
+                <div class="info-value" th:text="${patient.email}"></div>
             </div>
             <div class="info-box">
                 <div class="info-label">Phone</div>
-                <div class="info-value" th:text="${user.phone}"></div>
+                <div class="info-value" th:text="${patient.phone}"></div>
             </div>
             <div class="info-box">
                 <div class="info-label">Age</div>
-                <div class="info-value" th:text="${user.age}"></div>
+                <div class="info-value" th:text="${patient.age}"></div>
             </div>
         </div>
         
         <h2>Quick Actions</h2>
         <div class="actions">
-            <a th:href="@{/appointments/book}" class="action-btn">Book Appointment</a>
-            <a th:href="@{/appointments/patient}" class="action-btn">My Appointments</a>
-            <a th:href="@{/user/doctors}" class="action-btn">View Doctors</a>
-            <a th:href="@{/user/profile/{id}(id=${user.userId})}" class="action-btn">Edit Profile</a>
+            <a th:href="@{/patient/appointments/book}" class="action-btn">Book Appointment</a>
+            <a th:href="@{/patient/appointments}" class="action-btn">My Appointments</a>
+            <a th:href="@{/patient/doctors}" class="action-btn">View Doctors</a>
+            <a th:href="@{/patient/profile/{id}(id=${patient.personId})}" class="action-btn">Edit Profile</a>
         </div>
     </div>
 </body>

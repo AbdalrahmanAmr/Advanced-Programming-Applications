@@ -4,31 +4,61 @@ import jakarta.persistence.*;
 
 @Entity
 public class Slot {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    private String weekday;
-    private int availableCount;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Weekday weekday;
+
+    @Column
+    private String startTime;
+
+    @Column
+    private String endTime;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+    public Slot() {}
+
+    public Slot(Weekday weekday, String startTime, String endTime, Doctor doctor) {
+        this.weekday = weekday;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.doctor = doctor;
+    }
 
     public Long getId() {
         return id;
     }
-
-    public String getWeekday() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Weekday getWeekday() {
         return weekday;
     }
-
-    public void setWeekday(String weekday) {
+    public void setWeekday(Weekday weekday) {
         this.weekday = weekday;
     }
-
-    public int getAvailableCount() {
-        return availableCount;
+    public String getStartTime() {
+        return startTime;
     }
-
-    public void setAvailableCount(int availableCount) {
-        this.availableCount = availableCount;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+    public Doctor getDoctor() {
+        return doctor;
+    }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
