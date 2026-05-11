@@ -9,7 +9,7 @@
 <body style="display:flex;justify-content:center;align-items:center;">
     <div class="container medium">
         <h1 class="center">Sign Up</h1>
-        
+        <div class="error" th:if="${error}" th:text="${error}"></div>
         <div class="form-group">
             <label>Account Type:</label>
             <div class="radio-group">
@@ -27,17 +27,17 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="patFirstName">First Name:</label>
-                    <input type="text" id="patFirstName" name="firstName" required>
+                    <input type="text" id="patFirstName" name="firstName" minlength = "3" maxlength = "50" required>
                 </div>
                 <div class="form-group">
                     <label for="patLastName">Last Name:</label>
-                    <input type="text" id="patLastName" name="lastName" required>
+                    <input type="text" id="patLastName" name="lastName" minlength = "3" maxlength = "50" required>
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="patientUsername">Username:</label>
-                <input type="text" id="patientUsername" name="patientUsername" required>
+                <input type="text" id="patientUsername" name="patientUsername" minlength = "3" maxlength = "50" required>
             </div>
             
             <div class="form-group">
@@ -47,7 +47,7 @@
             
             <div class="form-group">
                 <label for="patPassword">Password:</label>
-                <input type="password" id="patPassword" name="password" required>
+                <input type="password" id="patPassword" name="password" minlength = "6" maxlength = "100" required>
             </div>
             
             <div class="form-row">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <label for="patPhone">Phone:</label>
-                    <input type="text" id="patPhone" name="phone" required>
+                    <input type="text" id="patPhone" name="phone" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
                 </div>
             </div>
             
@@ -91,7 +91,7 @@
             
             <div class="form-group">
                 <label for="doctorUsername">Username:</label>
-                <input type="text" id="doctorUsername" name="doctorUsername">
+                <input type="text" id="doctorUsername" name="doctorUsername" minlength = "3" maxlength = "50" >
             </div>
             
             <div class="form-group">
@@ -101,17 +101,17 @@
             
             <div class="form-group">
                 <label for="docPassword">Password:</label>
-                <input type="password" id="docPassword" name="password">
+                <input type="password" id="docPassword" name="password" minlength="6" maxlength = "100" required>
             </div>
             
             <div class="form-row">
                 <div class="form-group">
                     <label for="docAge">Age:</label>
-                    <input type="number" id="docAge" name="age" min="18">
+                    <input type="number" id="docAge" name="age" min="18" max = "120">
                 </div>
                 <div class="form-group">
                     <label for="docPhone">Phone:</label>
-                    <input type="text" id="docPhone" name="phone">
+                    <input type="text" id="docPhone" name="phone" minlength = "7" maxlength = "15" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
                 </div>
             </div>
             

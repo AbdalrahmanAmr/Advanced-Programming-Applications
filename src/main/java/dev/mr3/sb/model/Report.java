@@ -19,11 +19,9 @@ public class Report {
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
-    // No-arg constructor
     public Report() {
     }
 
-    // Full constructor
     public Report(Appointment appointment, String notes) {
         this.appointment = appointment;
         this.notes = notes;
@@ -56,11 +54,4 @@ public class Report {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
-
-//    public Patient getPatient() {
-//        if (appointment != null) {
-//            return appointment.getPatient();
-//        }
-//        return null;
-//    }
 }

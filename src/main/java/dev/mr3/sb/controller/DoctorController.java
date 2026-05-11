@@ -8,8 +8,10 @@ import dev.mr3.sb.service.AppointmentService;
 import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.ReportService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -53,10 +55,13 @@ public class DoctorController {
     }
 
     @PostMapping("/profile")
-    public String updateDoctorProfile(@ModelAttribute("person") Doctor doctorUpdate, HttpSession session, Model model) {
+    public String updateDoctorProfile(@Valid @ModelAttribute("person") Doctor doctorUpdate, HttpSession session, Model model , BindingResult result) {
         Person doctor = getAuthorizeddoctor(session);
         if (doctor == null) {
             return "redirect:/auth/login";
+        }
+        if (result.hasErrors()) {
+            return "UserProfile"; // Reload the profile page so the user sees the errors
         }
         Doctor updateddoctor = doctorService.updateDoctorProfile(doctor.getPersonId(), doctorUpdate);
         if (updateddoctor != null) {

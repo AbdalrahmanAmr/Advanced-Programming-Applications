@@ -10,9 +10,11 @@ import dev.mr3.sb.service.AuthService;
 import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.PatientService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -47,37 +49,49 @@ public class AuthController {
                 return "index";
 
         } catch (RuntimeException e) {
+            System.out.println("Login failed: " + e.getMessage());
             model.addAttribute("error", e.getMessage());
             return "Login";
         }
     }
 
     @GetMapping("/register")
-    public String RedirectSignupPage() {
+    public String RedirectSignupPage(Model model) {
+        model.addAttribute("patient", new Patient());
+        model.addAttribute("doctor", new Doctor());
         return "Signup";
     }
 
     @PostMapping("/register/patient")
-    public String RegisterPatient(@ModelAttribute Patient patient, Model model) {
-
+    public String RegisterPatient(@Valid @ModelAttribute Patient patient, BindingResult result, Model model ) {
+        if (result.hasErrors()) {
+            model.addAttribute("doctor", new Doctor()); //
+            return "Signup";}
         try {
             patientService.SignupPatient(patient);
             // After successful registration.
             return "redirect:/auth/login";
         } catch (Exception e) {
+            System.out.println("Patient registration failed: " + e.getMessage());
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("doctor", new Doctor()); //
             return "Signup";
         }
     }
 
     @PostMapping("/register/doctor")
-    public String RegisterDoctor(@ModelAttribute Doctor doctor, Model model) {
+    public String RegisterDoctor(@Valid @ModelAttribute Doctor doctor, BindingResult result, Model model ) {
+        if (result.hasErrors()) {
+            model.addAttribute("patient", new Patient()); //
+            return "Signup";}
         try {
             doctorService.SignupDoctor(doctor);
             // After successful registration.
             return "redirect:/auth/login";
         } catch (Exception e) {
+            System.out.println("Doctor registration failed: " + e.getMessage());
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("patient", new Patient()); //
             return "Signup";
         }
 

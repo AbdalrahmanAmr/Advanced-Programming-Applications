@@ -60,12 +60,12 @@
         <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" required>
+                <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" minlength = "3" maxlength = "50" required>
             </div>
             
             <div class="form-group">
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" th:value="${person.lastName}" required>
+                <input type="text" id="lastName" name="lastName" th:value="${person.lastName}" minlength = "3" maxlength = "50" required>
             </div>
             
             <div class="form-group">
@@ -75,12 +75,12 @@
             
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" th:value="${person.phone}" required>
+                <input type="text" id="phone" name="phone" th:value="${person.phone}" minlength = "7" maxlength = "15" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
             </div>
             
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" th:value="${person.age}" min="18" required>
+                <input type="number" id="age" name="age" th:value="${person.age}" min="18" max = "120" required>
             </div>
             
             <div class="button-group-form">

@@ -9,6 +9,7 @@ import dev.mr3.sb.service.AppointmentService;
 import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.PatientService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,12 +63,14 @@ public class PatientController {
     }
 
     @PostMapping("/profile")
-    public String updatePatientProfile(@ModelAttribute("person") Patient patientUpdate, HttpSession session, Model model) {
+    public String updatePatientProfile(@Valid @ModelAttribute("person") Patient patientUpdate, HttpSession session, Model model , BindingResult result) {
         Person patient = getAuthorizedPatient(session);
         if (patient == null) {
             return "redirect:/auth/login";
         }
-        
+        if (result.hasErrors()) {
+            return "UserProfile";
+        }
         Patient updatedPatient = patientService.updatePatientProfile(patient.getPersonId(), patientUpdate);
         if (updatedPatient != null) {
             session.setAttribute("patient", updatedPatient);
