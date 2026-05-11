@@ -1,9 +1,12 @@
 package dev.mr3.sb.service;
 
+import dev.mr3.sb.model.Appointment;
 import dev.mr3.sb.model.Doctor;
+import dev.mr3.sb.model.Report;
 import dev.mr3.sb.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -46,4 +49,20 @@ public class DoctorService {
         }
         return null;
     }
-}
+
+    public List<Appointment> getDoctorAppointments(Long doctorId) {
+        Doctor doctor = doctorRepository.findById(doctorId).orElse(null);
+        if (doctor != null) {
+            return doctor.getAppointmentsAsDoctor();
+        }
+        return Collections.emptyList();
+    }
+
+    public List<Report> getDoctorReports(Long doctorId) {
+        Doctor doctor = doctorRepository.findById(doctorId).orElse(null);
+        if (doctor != null) {
+            return doctor.getReports();
+        }
+        return Collections.emptyList();
+    }
+}

@@ -10,13 +10,13 @@ public class Doctor extends Person {
     @Column(unique = true)
     private String doctorUsername;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private List<Appointment> appointmentsAsDoctor;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private List<Slot> slots;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private List<Report> reports;
 
     public Doctor() {}

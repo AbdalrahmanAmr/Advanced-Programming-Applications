@@ -32,7 +32,7 @@
                     <tr th:each="report : ${reports}">
                         <td th:text="${report.appointment.patient.firstName + ' ' + report.appointment.patient.lastName}"></td>
                         <td th:text="${#strings.abbreviate(report.notes, 50)}"></td>
-                        <td><a th:href="@{/doctor/reports/{id}(id=${report.reportId})}" class="btn">View</a></td>
+                        <td><a th:href="@{/doctor/reports/view/{id}(id=${report.reportId})}" class="btn">View</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,28 +1,127 @@
 package dev.mr3.sb.controller;
 
+import dev.mr3.sb.model.Appointment;
+import dev.mr3.sb.model.Doctor;
 import dev.mr3.sb.model.Person;
+import dev.mr3.sb.model.Report;
+import dev.mr3.sb.service.AppointmentService;
 import dev.mr3.sb.service.DoctorService;
+import dev.mr3.sb.service.ReportService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/doctor")
 public class DoctorController {
     private final DoctorService doctorService;
-    public DoctorController(DoctorService doctorService) {
+    private final AppointmentService appointmentService;
+    private final ReportService reportService;
+    public DoctorController(DoctorService doctorService ,AppointmentService appointmentService , ReportService reportService) {
+         this.reportService = reportService;
         this.doctorService = doctorService;
+        this.appointmentService = appointmentService;
+    }
+
+    private Person getAuthorizeddoctor(HttpSession session) {
+        Person doctor = (Person) session.getAttribute("doctor");
+        if (doctor == null || !doctor.getRole().equals("DOCTOR")) {
+            return null;
+        }
+        return doctor;
     }
 
     @GetMapping("/dashboard")
     public String doctorDashboard(HttpSession session, Model model) {
-        Person doctor = (Person) session.getAttribute("doctor");
-        if (doctor == null || !doctor.getRole().equals("DOCTOR")) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
             return "redirect:/auth/login";
         }
         model.addAttribute("doctor", doctor);
         return "DoctorDashboard";
+    }
+
+    @GetMapping("/profile")
+    public String doctorProfile(HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        model.addAttribute("person", doctor);
+        return "UserProfile";
+    }
+
+    @PostMapping("/profile")
+    public String updateDoctorProfile(@ModelAttribute("person") Doctor doctorUpdate, HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        Doctor updateddoctor = doctorService.updateDoctorProfile(doctor.getPersonId(), doctorUpdate);
+        if (updateddoctor != null) {
+            session.setAttribute("doctor", updateddoctor);
+        }
+
+        return "redirect:/doctor/profile";
+    }
+
+    @GetMapping("/appointments")
+    public String doctorAppointments(HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        model.addAttribute("appointments", doctorService.getDoctorAppointments(doctor.getPersonId()));
+        return "DoctorAppointment";
+    }
+
+    @GetMapping("/reports")
+    public String doctorReports(HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        model.addAttribute("reports", doctorService.getDoctorReports(doctor.getPersonId()));
+        return "DoctorReportsList";
+    }
+
+    @GetMapping("/reports/view/{id}")
+    public String viewReport(@PathVariable Long id, HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        Report report = reportService.getReportById(id);
+        if (report == null || !report.getDoctor().getPersonId().equals(doctor.getPersonId())) {
+            return "redirect:/doctor/reports";
+        }
+        model.addAttribute("report", report);
+        return "ReportView";
+    }
+
+    @GetMapping("/reports/write/{id}")
+    public String writeReport(@PathVariable Long id, HttpSession session, Model model) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        Appointment appointment = appointmentService.getAppointmentById(id);
+        model.addAttribute("appointment", appointment);
+        model.addAttribute("report", new Report());
+        return "WriteReports";
+    }
+
+    @PostMapping("/reports/write")
+    public String saveReport(@ModelAttribute Report report,
+                             @RequestParam Long appointmentId,
+                             HttpSession session) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        report.setDoctor((Doctor) doctor);
+        reportService.createReport(report, appointmentId);
+        return "redirect:/doctor/reports";
     }
 }

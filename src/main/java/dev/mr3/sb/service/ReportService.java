@@ -39,4 +39,11 @@ public class ReportService {
     public List<Report> getReportsByPatient(Long patientId) {
         return reportRepository.findByAppointmentPatientPersonId(patientId);
     }
+    public Report getReportById(Long reportId) {
+        return reportRepository.findById(reportId).orElse(null);
+    }
+
+     public void deleteReport(Long reportId) {
+        reportRepository.deleteById(reportId);
+    }
 }

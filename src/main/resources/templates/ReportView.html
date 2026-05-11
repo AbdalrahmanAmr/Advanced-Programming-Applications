@@ -14,18 +14,14 @@
     
     <div class="container medium">
         <h1>Medical Report</h1>
-        
+
         <div class="report-section">
             <div class="report-label">Patient:</div>
             <div class="report-value" th:text="${report.appointment.patient.firstName + ' ' + report.appointment.patient.lastName}"></div>
-        </div>
-        
-        <div class="report-section">
+
             <div class="report-label">Doctor:</div>
             <div class="report-value" th:text="${report.doctor.firstName + ' ' + report.doctor.lastName}"></div>
-        </div>
-        
-        <div class="report-section">
+
             <div class="report-label">Notes:</div>
             <div class="report-value" th:text="${report.notes}"></div>
         </div>
