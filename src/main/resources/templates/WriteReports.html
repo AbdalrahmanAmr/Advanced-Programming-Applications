@@ -15,17 +15,24 @@
 <div class="container medium">
     <h1>Write Report for <span th:text="${appointment.patient.firstName + ' ' + appointment.patient.lastName}"></span></h1>
 
-    <form method="post" th:action="@{/doctor/reports/write}" th:object="${report}">
-        <input type="hidden" name="appointmentId" th:value="${appointment.appointmentId}">
+    <div th:if="${alreadyWritten}" class="alert alert-warning">
+        <p th:text="${message}"></p>
+        <a th:href="@{/doctor/dashboard}" class="btn">Back to Dashboard</a>
+    </div>
 
-        <div class="form-group">
-            <label for="notes">Medical Notes:</label>
-            <textarea id="notes" name="notes" th:field="*{notes}" required></textarea>
-        </div>
+    <div th:if="${!alreadyWritten}">
+        <form method="post" th:action="@{/doctor/reports/write}" th:object="${report}">
+            <input type="hidden" name="appointmentId" th:value="${appointment.appointmentId}">
 
-        <button type="submit">Save Report</button>
-        <a th:href="@{/doctor/dashboard}" class="cancel-btn">Cancel</a>
-    </form>
+            <div class="form-group">
+                <label for="notes">Medical Notes:</label>
+                <textarea id="notes" name="notes" th:field="*{notes}" required></textarea>
+            </div>
+
+            <button type="submit">Save Report</button>
+            <a th:href="@{/doctor/dashboard}" class="cancel-btn">Cancel</a>
+        </form>
+    </div>
 </div>
 </body>
 </html>

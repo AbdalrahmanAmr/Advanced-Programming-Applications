@@ -4,6 +4,7 @@ import dev.mr3.sb.model.Appointment;
 import dev.mr3.sb.model.Doctor;
 import dev.mr3.sb.model.Person;
 import dev.mr3.sb.model.Report;
+import dev.mr3.sb.model.Status;
 import dev.mr3.sb.service.AppointmentService;
 import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.ReportService;
@@ -112,6 +113,17 @@ public class DoctorController {
             return "redirect:/auth/login";
         }
         Appointment appointment = appointmentService.getAppointmentById(id);
+        
+        // Check if a report already exists for this appointment
+        Report existingReport = reportService.getReportByAppointmentId(id);
+        if (existingReport != null) {
+            model.addAttribute("alreadyWritten", true);
+            model.addAttribute("message", "A report has already been written for this appointment");
+            model.addAttribute("appointment", appointment);
+            return "WriteReports";
+        }
+        
+        model.addAttribute("alreadyWritten", false);
         model.addAttribute("appointment", appointment);
         model.addAttribute("report", new Report());
         return "WriteReports";
@@ -128,5 +140,29 @@ public class DoctorController {
         report.setDoctor((Doctor) doctor);
         reportService.createReport(report, appointmentId);
         return "redirect:/doctor/reports";
+    }
+
+    @PostMapping("/appointments/{id}/status")
+    public String updateAppointmentStatus(@PathVariable Long id,
+                                         @RequestParam String status,
+                                         HttpSession session) {
+        Person doctor = getAuthorizeddoctor(session);
+        if (doctor == null) {
+            return "redirect:/auth/login";
+        }
+        
+        Appointment appointment = appointmentService.getAppointmentById(id);
+        if (appointment == null || !appointment.getDoctor().getPersonId().equals(doctor.getPersonId())) {
+            return "redirect:/doctor/appointments";
+        }
+        
+        try {
+            Status newStatus = Status.valueOf(status.toUpperCase());
+            appointmentService.updateAppointmentStatus(id, newStatus);
+        } catch (IllegalArgumentException e) {
+            // Invalid status
+        }
+        
+        return "redirect:/doctor/appointments";
     }
 }

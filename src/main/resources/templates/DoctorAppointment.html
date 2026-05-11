@@ -37,7 +37,19 @@
                         <td th:text="${appt.appointmenttime}"></td>
                         <td th:text="${appt.status}"></td>
                         <td>
-                            <a th:href="@{/doctor/reports/write/{id}(id=${appt.appointmentId})}" class="btn">Write Report</a>
+                            <div th:if="${appt.status.name() == 'PENDING'}" style="display: flex; gap: 10px;">
+                                <form method="post" th:action="@{/doctor/appointments/{id}/status(id=${appt.appointmentId})}" style="display: inline;">
+                                    <input type="hidden" name="status" value="CONFIRMED">
+                                    <button type="submit" class="btn btn-success">Confirm</button>
+                                </form>
+                                <form method="post" th:action="@{/doctor/appointments/{id}/status(id=${appt.appointmentId})}" style="display: inline;">
+                                    <input type="hidden" name="status" value="CANCELLED">
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                </form>
+                            </div>
+                            <div th:if="${appt.status.name() != 'PENDING'}">
+                                <a th:href="@{/doctor/reports/write/{id}(id=${appt.appointmentId})}" class="btn">Write Report</a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

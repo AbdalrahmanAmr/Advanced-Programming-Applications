@@ -2,12 +2,15 @@ package dev.mr3.sb.service;
 
 import dev.mr3.sb.model.Patient;
 import dev.mr3.sb.repository.PatientRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class PatientService {
+    private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
     private final PatientRepository patientRepository;
 
     public PatientService(PatientRepository patientRepository) {
@@ -17,9 +20,11 @@ public class PatientService {
     public void SignupPatient(Patient patient) {
         Optional<Patient> existing = patientRepository.findByUsername(patient.getUsername());
         if (existing.isPresent()) {
+            logger.warn("Patient signup failure: username already exists, username={}", patient.getUsername());
             throw new RuntimeException("Username already exists");
         }
         patientRepository.save(patient);
+        logger.info("Patient signup success: username={}", patient.getUsername());
     }
 
     public Patient updatePatientProfile(Long patientId, Patient patientUpdate) {
@@ -30,8 +35,11 @@ public class PatientService {
             existingPatient.setEmail(patientUpdate.getEmail());
             existingPatient.setPhone(patientUpdate.getPhone());
             existingPatient.setAge(patientUpdate.getAge());
-            return patientRepository.save(existingPatient);
+            Patient updatedPatient = patientRepository.save(existingPatient);
+            logger.info("Patient profile updated: patientId={}", patientId);
+            return updatedPatient;
         }
+        logger.warn("Patient profile update failed: not found, patientId={}", patientId);
         return null;
     }
 
