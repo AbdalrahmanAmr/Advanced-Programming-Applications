@@ -3,12 +3,11 @@ package dev.mr3.sb.model;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("PERSON")
 public abstract class Person {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long personId;
 
     @Column(unique = true)
@@ -37,6 +36,7 @@ public abstract class Person {
 
     public abstract String getRole();
 
+    // Getters and setters...
     public Long getPersonId() {
         return personId;
     }

@@ -10,9 +10,6 @@
     <div class="container medium">
         <h1 class="center">Sign Up</h1>
         
-        <div class="error" th:if="${error}" th:text="${error}"></div>
-        
-        <!-- Account type selection determines which form is shown -->
         <div class="form-group">
             <label>Account Type:</label>
             <div class="radio-group">
@@ -39,8 +36,8 @@
             </div>
             
             <div class="form-group">
-                <label for="patUsername">Username:</label>
-                <input type="text" id="patUsername" name="username" required>
+                <label for="patientUsername">Username:</label>
+                <input type="text" id="patientUsername" name="patientUsername" required>
             </div>
             
             <div class="form-group">
@@ -79,7 +76,7 @@
             <button type="submit">Sign Up as Patient</button>
         </form>
 
-        <!-- Doctor Registration Form -->
+        <!-- DoctorController Registration Form -->
         <form method="post" th:action="@{/auth/register/doctor}" id="doctorForm" style="display: none;">
             <div class="form-row">
                 <div class="form-group">
@@ -93,8 +90,8 @@
             </div>
             
             <div class="form-group">
-                <label for="docUsername">Username:</label>
-                <input type="text" id="docUsername" name="username">
+                <label for="doctorUsername">Username:</label>
+                <input type="text" id="doctorUsername" name="doctorUsername">
             </div>
             
             <div class="form-group">

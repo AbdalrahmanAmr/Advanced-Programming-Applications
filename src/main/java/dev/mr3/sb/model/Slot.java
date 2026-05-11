@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Slot {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

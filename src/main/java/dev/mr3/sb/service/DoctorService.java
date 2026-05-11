@@ -1,12 +1,25 @@
 package dev.mr3.sb.service;
 
+import dev.mr3.sb.model.Doctor;
+import dev.mr3.sb.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DoctorService {
-        // This service can be expanded to include business logic related to doctors, such as:
-        // - Registering new doctors
-        // - Updating doctor profiles
-        // - Retrieving doctor information
-        // - Managing doctor-patient relationships
+    private final DoctorRepository doctorRepository;
+    public DoctorService(DoctorRepository doctorRepository) {this.doctorRepository = doctorRepository;}
+
+    public boolean SignupDoctor(Doctor doctor) {
+        try {
+                if (doctorRepository.findByUsername(doctor.getUsername()).isPresent()) {
+                    throw new RuntimeException("Username already exists");
+                }
+            doctorRepository.save(doctor);
+            return true;
+
+        } catch (RuntimeException e) {
+            return false;
+        }
+
+    }
 }

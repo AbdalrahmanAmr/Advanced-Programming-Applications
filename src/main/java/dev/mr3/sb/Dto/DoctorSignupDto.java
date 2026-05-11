@@ -25,7 +25,7 @@ public class DoctorSignupDto {
     @Size(min = 6, max = 100, message = "Password must be at least 6 characters")
     private String password;
 
-    @Min(value = 22, message = "Doctor must be at least 22 years old")
+    @Min(value = 22, message = "DoctorController must be at least 22 years old")
     @Max(value = 80, message = "Age cannot exceed 80")
     private int age;
 

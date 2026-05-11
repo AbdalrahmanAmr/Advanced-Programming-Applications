@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@DiscriminatorValue("DOCTOR")
+@PrimaryKeyJoinColumn(name = "person_id") // FK to person table
 public class Doctor extends Person {
+
+    @Column(unique = true)
+    private String doctorUsername;
 
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointmentsAsDoctor;
@@ -17,6 +20,13 @@ public class Doctor extends Person {
     private List<Report> reports;
 
     public Doctor() {}
+
+    public Doctor(List<Appointment> appointmentsAsDoctor, List<Slot> slots, List<Report> reports)
+    {
+        this.appointmentsAsDoctor = appointmentsAsDoctor;
+        this.slots = slots;
+        this.reports = reports;
+    }
 
     @Override
     public String getRole() {
@@ -40,5 +50,14 @@ public class Doctor extends Person {
     }
     public void setReports(List<Report> reports) {
         this.reports = reports;
+    }
+
+    public String getDoctorUsername() {
+        return doctorUsername;
+    }
+
+    public void setDoctorUsername(String doctorUsername) {
+        this.doctorUsername = doctorUsername;
+        super.setUsername(doctorUsername);
     }
 }
