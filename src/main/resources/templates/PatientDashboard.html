@@ -12,7 +12,7 @@
             <span th:text="'Welcome, ' + ${patient.firstName}"></span>
         </div>
         <div>
-            <a th:href="@{/patient/profile/{id}(id=${patient.personId})}">My Profile</a>
+            <a th:href="@{/patient/profile}">My Profile</a>
             <a th:href="@{/auth/logout}">Logout</a>
         </div>
     </div>
@@ -41,10 +41,9 @@
         
         <h2>Quick Actions</h2>
         <div class="actions">
-            <a th:href="@{/patient/appointments/book}" class="action-btn">Book Appointment</a>
+            <a th:href="@{/patient/appointment/book}" class="action-btn">Book Appointment</a>
             <a th:href="@{/patient/appointments}" class="action-btn">My Appointments</a>
-            <a th:href="@{/patient/doctors}" class="action-btn">View Doctors</a>
-            <a th:href="@{/patient/profile/{id}(id=${patient.personId})}" class="action-btn">Edit Profile</a>
+            <a th:href="@{/patient/profile}" class="action-btn">Edit Profile</a>
         </div>
     </div>
 </body>

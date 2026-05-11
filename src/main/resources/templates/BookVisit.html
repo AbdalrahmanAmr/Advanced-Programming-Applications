@@ -16,7 +16,7 @@
         <h1>Book an Appointment</h1>
         <div class="error" th:if="${error}" th:text="${error}"></div>
         
-        <form method="post" th:action="@{/patient/appointments/book}">
+        <form method="post" th:action="@{/patient/appointment/book}">
             <div class="form-group">
                 <label for="doctorId">Select Doctor:</label>
                 <select id="doctorId" name="doctorId" required>

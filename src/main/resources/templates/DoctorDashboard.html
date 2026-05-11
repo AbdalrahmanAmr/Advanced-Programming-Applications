@@ -12,7 +12,7 @@
             <span th:text="'Welcome, Dr. ' + ${doctor.lastName}"></span>
         </div>
         <div>
-            <a th:href="@{/doctor/profile/{id}(id=${doctor.personId})}">My Profile</a>
+            <a th:href="@{/doctor/profile}">My Profile</a>
             <a th:href="@{/auth/logout}">Logout</a>
         </div>
     </div>
@@ -43,8 +43,8 @@
         <div class="actions">
             <a th:href="@{/doctor/appointments}" class="action-btn">My Appointments</a>
             <a th:href="@{/doctor/slots/manage}" class="action-btn">Manage Slots</a>
-            <a th:href="@{/doctor/reports/{id}(id=${doctor.personId})}" class="action-btn">My Reports</a>
-            <a th:href="@{/doctor/profile/{id}(id=${doctor.personId})}" class="action-btn">Edit Profile</a>
+            <a th:href="@{/doctor/reports}" class="action-btn">My Reports</a>
+            <a th:href="@{/doctor/profile}" class="action-btn">Edit Profile</a>
         </div>
     </div>
 </body>

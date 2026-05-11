@@ -57,7 +57,7 @@
         </div>
         
         <h2>Edit Profile</h2>
-        <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile/{id}(id=${person.personId})} : @{/patient/profile/{id}(id=${person.personId})}">
+        <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" required>

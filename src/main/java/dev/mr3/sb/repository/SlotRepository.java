@@ -16,4 +16,10 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
 
     // Get slots for a doctor on a specific day
     List<Slot> findByDoctorAndWeekday(Doctor doctor, Weekday weekday);
+
+    List<Slot> findByDoctorPersonId(Long doctorId);
+    
+    List<Slot> findByDoctorPersonIdAndWeekday(Long doctorId, Weekday weekday);
+    
+    boolean existsByDoctorPersonIdAndWeekdayAndStartTimeAndEndTime(Long doctorId, Weekday weekday, String startTime, String endTime);
 }
