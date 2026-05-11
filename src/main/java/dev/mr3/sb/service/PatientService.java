@@ -21,7 +21,7 @@ public class PatientService {
         }
         patientRepository.save(patient);
     }
-    
+
     public Patient updatePatientProfile(Long patientId, Patient patientUpdate) {
         Patient existingPatient = patientRepository.findById(patientId).orElse(null);
         if (existingPatient != null) {
