@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public class PatientService {
     private final PatientRepository patientRepository;
-    
+
     public PatientService(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
@@ -21,7 +21,7 @@ public class PatientService {
         }
         patientRepository.save(patient);
     }
-
+    
     public Patient updatePatientProfile(Long patientId, Patient patientUpdate) {
         Patient existingPatient = patientRepository.findById(patientId).orElse(null);
         if (existingPatient != null) {
@@ -37,9 +37,5 @@ public class PatientService {
 
     public java.util.List<Patient> getAllPatients() {
         return patientRepository.findAll();
-    }
-    
-    public Patient getPatientById(Long patientId) {
-        return patientRepository.findById(patientId).orElse(null);
     }
 }
