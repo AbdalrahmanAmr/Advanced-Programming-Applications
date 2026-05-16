@@ -7,45 +7,60 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="navbar">
-        <div>My Appointments</div>
-        <div><a th:href="@{/patient/dashboard}">Dashboard</a> <a th:href="@{/auth/logout}">Logout</a></div>
+<div class="navbar">
+    <div>My Appointments</div>
+    <div><a th:href="@{/patient/dashboard}">Dashboard</a> <a th:href="@{/auth/logout}">Logout</a></div>
+</div>
+
+<div class="container">
+    <h1>Your Appointments</h1>
+
+    <div class="no-appointments" th:if="${appointments.isEmpty()}">
+        <p>No appointments booked yet.</p>
+        <a th:href="@{/patient/appointment/book}" class="btn">Book Now</a>
     </div>
-    
-    <div class="container">
-        <h1>Your Appointments</h1>
-        
-        <div class="no-appointments" th:if="${appointments.isEmpty()}">
-            <p>No appointments booked yet.</p>
-            <a th:href="@{/patient/appointment/book}" class="btn">Book Now</a>
-        </div>
-        
-        <div class="table-wrapper">
-            <table th:if="${!appointments.isEmpty()}">
-                <thead>
-                    <tr>
-                        <th>Doctor</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="appt : ${appointments}">
-                        <td th:text="${appt.doctor.firstName + ' ' + appt.doctor.lastName}"></td>
-                        <td th:text="${appt.weekday}"></td>
-                        <td th:text="${appt.appointmenttime}"></td>
-                        <td th:text="${appt.status}"></td>
-                        <td>
-                            <form method="post" th:action="@{/patient/appointments/{id}/cancel(id=${appt.appointmentId})}" class="inline-form">
-                                <button type="submit" class="btn btn-red" onclick="return confirm('Cancel this appointment?')">Cancel</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+    <div class="table-wrapper">
+        <table th:if="${!appointments.isEmpty()}">
+            <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="appt : ${appointments}">
+                <td th:text="${appt.doctor.firstName + ' ' + appt.doctor.lastName}"></td>
+                <td th:text="${appt.weekday}"></td>
+                <td th:text="${appt.appointmenttime}"></td>
+                <td th:text="${appt.status}"></td>
+                <td>
+                    <form method="post" th:action="@{/patient/appointments/{id}/cancel(id=${appt.appointmentId})}" class="inline-form">
+                        <!-- Cancel button (only for non-confirmed appointments) -->
+                        <button type="submit"
+                                class="btn btn-red"
+                                th:if="${appt.status.name() != 'CONFIRMED'}"
+                                onclick="return confirm('Cancel this appointment?')"
+                                title="Click to cancel">
+                            Cancel
+                        </button>
+                        <!-- Disabled button (for confirmed appointments) -->
+                        <button type="button"
+                                class="btn btn-red"
+                                disabled
+                                th:if="${appt.status.name() == 'CONFIRMED'}"
+                                title="Cannot cancel confirmed appointments">
+                            Cannot Cancel
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 </body>
 </html>

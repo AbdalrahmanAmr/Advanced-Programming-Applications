@@ -7,88 +7,91 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="navbar">
-        <div>
-            <span th:text="'Welcome, ' + ${person.firstName}"></span>
+<div class="navbar">
+    <div>
+        <span th:text="'Welcome, ' + ${person.firstName}"></span>
+    </div>
+    <div>
+        <a th:if="${person.role == 'DOCTOR'}" th:href="@{/doctor/dashboard}">Dashboard</a>
+        <a th:if="${person.role == 'PATIENT'}" th:href="@{/patient/dashboard}">Dashboard</a>
+        <a th:href="@{/auth/logout}">Logout</a>
+    </div>
+</div>
+
+<div class="container medium">
+    <h1 class="center">My Profile</h1>
+
+    <div class="profile-info">
+        <div class="info-row">
+            <div class="info-field">
+                <div class="info-label">Username</div>
+                <div class="info-value" th:text="${person.username}"></div>
+            </div>
+            <div class="info-field">
+                <div class="info-label">Account Type</div>
+                <div class="info-value" th:text="${person.role}"></div>
+            </div>
         </div>
-        <div>
-            <a th:if="${person.role == 'DOCTOR'}" th:href="@{/doctor/dashboard}">Dashboard</a>
-            <a th:if="${person.role == 'PATIENT'}" th:href="@{/patient/dashboard}">Dashboard</a>
-            <a th:href="@{/auth/logout}">Logout</a>
+
+        <div class="info-row">
+            <div class="info-field">
+                <div class="info-label">Email</div>
+                <div class="info-value" th:text="${person.email}"></div>
+            </div>
+            <div class="info-field">
+                <div class="info-label">Phone</div>
+                <div class="info-value" th:text="${person.phone}"></div>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-field">
+                <div class="info-label">Age</div>
+                <div class="info-value" th:text="${person.age}"></div>
+            </div>
+            <div class="info-field">
+                <div class="info-label">Gender</div>
+                <div class="info-value" th:text="${person.gender ? 'Male' : 'Female'}"></div>
+            </div>
         </div>
     </div>
-    
-    <div class="container medium">
-        <h1 class="center">My Profile</h1>
-        
-        <div class="profile-info">
-            <div class="info-row">
-                <div class="info-field">
-                    <div class="info-label">Username</div>
-                    <div class="info-value" th:text="${person.username}"></div>
-                </div>
-                <div class="info-field">
-                    <div class="info-label">Account Type</div>
-                    <div class="info-value" th:text="${person.role}"></div>
-                </div>
-            </div>
-            
-            <div class="info-row">
-                <div class="info-field">
-                    <div class="info-label">Email</div>
-                    <div class="info-value" th:text="${person.email}"></div>
-                </div>
-                <div class="info-field">
-                    <div class="info-label">Phone</div>
-                    <div class="info-value" th:text="${person.phone}"></div>
-                </div>
-            </div>
-            
-            <div class="info-row">
-                <div class="info-field">
-                    <div class="info-label">Age</div>
-                    <div class="info-value" th:text="${person.age}"></div>
-                </div>
-                <div class="info-field">
-                    <div class="info-label">Gender</div>
-                    <div class="info-value" th:text="${person.gender ? 'Male' : 'Female'}"></div>
-                </div>
-            </div>
+
+    <h2>Edit Profile</h2>
+    <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
+        <input type="hidden" name="username" th:value="${person.username}">
+        <input type="hidden" name="password" th:value="${person.password}">
+        <input type="hidden" name="doctorUsername" th:value="${person.doctorUsername}">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" minlength = "3" maxlength = "50" required>
         </div>
-        
-        <h2>Edit Profile</h2>
-        <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" minlength = "3" maxlength = "50" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" th:value="${person.lastName}" minlength = "3" maxlength = "50" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" th:value="${person.email}" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" th:value="${person.phone}" minlength = "7" maxlength = "15" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" th:value="${person.age}" min="18" max = "120" required>
-            </div>
-            
-            <div class="button-group-form">
-                <button type="submit">Save Changes</button>
-                <a th:if="${person.role == 'DOCTOR'}" th:href="@{/doctor/dashboard}" class="cancel-btn">Cancel</a>
-                <a th:if="${person.role == 'PATIENT'}" th:href="@{/patient/dashboard}" class="cancel-btn">Cancel</a>
-            </div>
-        </form>
-    </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" th:value="${person.lastName}" minlength = "3" maxlength = "50" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:value="${person.email}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" th:value="${person.phone}" minlength = "7" maxlength = "15" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" th:value="${person.age}" min="18" max = "120" required>
+        </div>
+
+        <div class="button-group-form">
+            <button type="submit">Save Changes</button>
+            <a th:if="${person.role == 'DOCTOR'}" th:href="@{/doctor/dashboard}" class="cancel-btn">Cancel</a>
+            <a th:if="${person.role == 'PATIENT'}" th:href="@{/patient/dashboard}" class="cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>
 </body>
 </html>
