@@ -81,6 +81,8 @@ public class AuthController {
         if (result.hasErrors()) {
             if (result.hasFieldErrors("role")) {
                 model.addAttribute("error", "Please select a valid account type");
+            } else {
+                model.addAttribute("error", "Please correct the highlighted registration errors");
             }
             return "Signup";
         }
