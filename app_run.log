@@ -35,26 +35,26 @@
 
  :: Spring Boot ::               (v3.5.13)
 
-2026-05-16T22:33:48.212Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 581384 (/app/target/classes started by jules in /app)
-2026-05-16T22:33:48.214Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
-2026-05-16T22:33:48.266Z  INFO 581384 --- [SB] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-16T22:33:48.266Z  INFO 581384 --- [SB] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-16T22:33:49.392Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-16T22:33:49.469Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
-2026-05-16T22:33:50.092Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-05-16T22:33:50.108Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-16T22:33:50.109Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
-2026-05-16T22:33:50.150Z  INFO 581384 --- [SB] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-05-16T22:33:50.151Z  INFO 581384 --- [SB] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1883 ms
-2026-05-16T22:33:50.440Z  INFO 581384 --- [SB] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-16T22:33:50.487Z  INFO 581384 --- [SB] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.45.Final
-2026-05-16T22:33:50.520Z  INFO 581384 --- [SB] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-05-16T22:33:50.822Z  INFO 581384 --- [SB] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-16T22:33:50.853Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-05-16T22:33:51.061Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devdb user=SA
-2026-05-16T22:33:51.063Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-05-16T22:33:51.088Z  WARN 581384 --- [SB] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-16T22:33:51.111Z  INFO 581384 --- [SB] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-05-16T23:37:43.301Z  INFO 1198460 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 1198460 (/app/target/classes started by jules in /app)
+2026-05-16T23:37:43.304Z  INFO 1198460 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
+2026-05-16T23:37:43.375Z  INFO 1198460 --- [SB] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-16T23:37:43.375Z  INFO 1198460 --- [SB] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-16T23:37:44.848Z  INFO 1198460 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-16T23:37:44.930Z  INFO 1198460 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 6 JPA repository interfaces.
+2026-05-16T23:37:45.874Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-16T23:37:45.891Z  INFO 1198460 --- [SB] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-16T23:37:45.891Z  INFO 1198460 --- [SB] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-16T23:37:45.934Z  INFO 1198460 --- [SB] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-16T23:37:45.935Z  INFO 1198460 --- [SB] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2559 ms
+2026-05-16T23:37:46.254Z  INFO 1198460 --- [SB] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-16T23:37:46.301Z  INFO 1198460 --- [SB] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-05-16T23:37:46.334Z  INFO 1198460 --- [SB] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-16T23:37:46.728Z  INFO 1198460 --- [SB] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-16T23:37:46.773Z  INFO 1198460 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-16T23:37:47.114Z  INFO 1198460 --- [SB] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devdb user=SA
+2026-05-16T23:37:47.118Z  INFO 1198460 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-16T23:37:47.153Z  WARN 1198460 --- [SB] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-16T23:37:47.186Z  INFO 1198460 --- [SB] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -66,11 +66,11 @@ Hibernate: create global temporary table HT_person(person_id bigint not null, pr
 Hibernate: create global temporary table HTE_person(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
 Hibernate: create global temporary table HTE_doctor(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
 Hibernate: create global temporary table HTE_patient(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-2026-05-16T22:33:52.334Z  INFO 581384 --- [SB] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-16T23:37:48.475Z  INFO 1198460 --- [SB] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: create table appointment (appointment_id bigint generated by default as identity, appointment_time timestamp(6), status enum ('CANCELLED','CONFIRMED','PENDING','RESERVED'), doctor_id bigint, patient_id bigint, primary key (appointment_id))
 Hibernate: create table doctor (doctor_username varchar(50) not null, person_id bigint not null, primary key (person_id))
 Hibernate: create table patient (patient_username varchar(50) not null, person_id bigint not null, primary key (person_id))
-Hibernate: create table person (person_type varchar(31) not null, person_id bigint generated by default as identity, age integer check ((age>=0) and (age<=120)), email varchar(255) not null, first_name varchar(50) not null, gender boolean, last_name varchar(50) not null, password varchar(100) not null, phone varchar(255) not null, username varchar(50) not null, primary key (person_id))
+Hibernate: create table person (person_type varchar(31) not null, person_id bigint generated by default as identity, age integer check ((age<=120) and (age>=1)), email varchar(255) not null, first_name varchar(50) not null, gender boolean, last_name varchar(50) not null, password varchar(100) not null, phone varchar(255) not null, username varchar(50) not null, primary key (person_id))
 Hibernate: create table report (report_id bigint generated by default as identity, notes TEXT, appointment_id bigint not null, doctor_id bigint not null, primary key (report_id))
 Hibernate: create table slot (id bigint generated by default as identity, end_time varchar(255), start_time varchar(255), weekday enum ('FRIDAY','MONDAY','SATURDAY','SUNDAY','THURSDAY','TUESDAY','WEDNESDAY'), doctor_id bigint, primary key (id))
 Hibernate: alter table if exists doctor drop constraint if exists UKiipoq6hotfhywesb2xo8mx8oq
@@ -90,33 +90,33 @@ Hibernate: alter table if exists patient add constraint FKdxxw8hyl1nca8o4x5r5eap
 Hibernate: alter table if exists report add constraint FKorag1ww0f2a059d8w1rkwb8j2 foreign key (appointment_id) references appointment
 Hibernate: alter table if exists report add constraint FKj87ng5ed9hsx4q6dhvtas4iog foreign key (doctor_id) references doctor
 Hibernate: alter table if exists slot add constraint FKee9xprmms4nn9w5xlt62k1efe foreign key (doctor_id) references doctor
-2026-05-16T22:33:52.453Z  INFO 581384 --- [SB] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T22:33:53.029Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2026-05-16T22:33:53.321Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-05-16T22:33:53.361Z  WARN 581384 --- [SB] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration :
+2026-05-16T23:37:48.616Z  INFO 1198460 --- [SB] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-16T23:37:49.255Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-05-16T23:37:49.553Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-05-16T23:37:49.591Z  WARN 1198460 --- [SB] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration :
 
-Using generated security password: 9420d289-b6fc-4a6b-9299-a7f83c7c2d6a
+Using generated security password: a3b635e8-c4ee-48f6-81cc-74afb92e10e8
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-05-16T22:33:53.370Z  INFO 581384 --- [SB] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-05-16T22:33:53.733Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:devdb'
-2026-05-16T22:33:53.771Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-05-16T22:33:53.845Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-05-16T22:33:53.862Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Started SbApplication in 6.156 seconds (process running for 6.592)
-2026-05-16T22:35:49.767Z  INFO 581384 --- [SB] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-16T22:35:49.767Z  INFO 581384 --- [SB] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-16T22:35:49.772Z  INFO 581384 --- [SB] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-05-16T23:37:49.599Z  INFO 1198460 --- [SB] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-16T23:37:50.025Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:devdb'
+2026-05-16T23:37:50.071Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-05-16T23:37:50.155Z  INFO 1198460 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-05-16T23:37:50.172Z  INFO 1198460 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Started SbApplication in 7.612 seconds (process running for 8.346)
+2026-05-16T23:39:21.732Z  INFO 1198460 --- [SB] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-16T23:39:21.733Z  INFO 1198460 --- [SB] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-16T23:39:21.736Z  INFO 1198460 --- [SB] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
 Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id where d1_1.username=?
 Hibernate: insert into person (age,email,first_name,gender,last_name,password,phone,username,person_type,person_id) values (?,?,?,?,?,?,?,?,'Doctor',default)
 Hibernate: insert into doctor (doctor_username,person_id) values (?,?)
-2026-05-16T22:36:51.094Z  INFO 581384 --- [SB] [nio-8080-exec-6] dev.mr3.sb.service.DoctorService         : Doctor signup success: username=drjohn
+2026-05-16T23:39:25.386Z  INFO 1198460 --- [SB] [nio-8080-exec-3] dev.mr3.sb.service.DoctorService         : Doctor signup success: username=drjohn
 Hibernate: select p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username from patient p1_0 join person p1_1 on p1_0.person_id=p1_1.person_id where p1_1.username=?
 Hibernate: insert into person (age,email,first_name,gender,last_name,password,phone,username,person_type,person_id) values (?,?,?,?,?,?,?,?,'Patient',default)
 Hibernate: insert into patient (patient_username,person_id) values (?,?)
-2026-05-16T22:36:54.443Z  INFO 581384 --- [SB] [nio-8080-exec-1] dev.mr3.sb.service.PatientService        : Patient signup success: username=janesmith
+2026-05-16T23:39:28.692Z  INFO 1198460 --- [SB] [nio-8080-exec-8] dev.mr3.sb.service.PatientService        : Patient signup success: username=janesmith
 Hibernate: select p1_0.person_id,p1_0.person_type,p1_0.age,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.last_name,p1_0.password,p1_0.phone,p1_0.username,p1_1.doctor_username,p1_2.patient_username from person p1_0 left join doctor p1_1 on p1_0.person_id=p1_1.person_id left join patient p1_2 on p1_0.person_id=p1_2.person_id where p1_0.username=?
-2026-05-16T22:36:56.253Z  INFO 581384 --- [SB] [nio-8080-exec-4] dev.mr3.sb.service.AuthService           : Login successful: username=janesmith, role=PATIENT
+2026-05-16T23:39:30.484Z  INFO 1198460 --- [SB] [nio-8080-exec-1] dev.mr3.sb.service.AuthService           : Login successful: username=janesmith, role=PATIENT
 Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id
 Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
 Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
@@ -127,7 +127,7 @@ Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appoint
 Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join patient p1_0 on p1_0.person_id=a1_0.patient_id where p1_0.person_id=?
 Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id where d1_0.person_id=?
 Hibernate: insert into appointment (appointment_time,doctor_id,patient_id,status,appointment_id) values (?,?,?,?,default)
-2026-05-16T22:36:58.809Z  INFO 581384 --- [SB] [nio-8080-exec-9] dev.mr3.sb.service.AppointmentService    : Appointment booked: patientId=2, doctorId=1, time=2025-01-01T10:00
+2026-05-16T23:39:33.009Z  INFO 1198460 --- [SB] [nio-8080-exec-6] dev.mr3.sb.service.AppointmentService    : Appointment booked: patientId=2, doctorId=1, time=2025-01-01T10:00
 Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join patient p1_0 on p1_0.person_id=a1_0.patient_id where p1_0.person_id=?
 Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
 Hibernate: select r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,r2_0.doctor_id,r2_0.report_id,r2_0.appointment_id,r2_0.notes,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.doctor_id,d3_0.person_id,d3_1.age,d3_1.email,d3_1.first_name,d3_1.gender,d3_1.last_name,d3_1.password,d3_1.phone,d3_1.username,d3_0.doctor_username,r1_0.notes from report r1_0 join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join report r2_0 on d1_0.person_id=r2_0.doctor_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id join doctor d3_0 on d3_0.person_id=r1_0.doctor_id join person d3_1 on d3_0.person_id=d3_1.person_id where r1_0.appointment_id=?
@@ -142,223 +142,7 @@ Hibernate: select p1_0.person_id,p1_0.person_type,p1_0.age,p1_0.email,p1_0.first
 Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
 Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
 Hibernate: select aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from appointment aad1_0 left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where aad1_0.doctor_id=?
-2026-05-16T22:37:02.823Z  INFO 581384 --- [SB] [nio-8080-exec-7] dev.mr3.sb.service.AuthService           : Login successful: username=drjohn, role=DOCTOR
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-2026-05-16T22:47:34.393Z  INFO 581384 --- [SB] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 32 class path changes (0 additions, 32 deletions, 0 modifications)
-2026-05-16T22:47:34.401Z  INFO 581384 --- [SB] [       Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2026-05-16T22:47:34.416Z  INFO 581384 --- [SB] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2026-05-16T22:47:34.433Z  INFO 581384 --- [SB] [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T22:47:34.451Z  WARN 581384 --- [SB] [       Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
-2026-05-16T22:47:34.453Z  INFO 581384 --- [SB] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-05-16T22:47:34.457Z  INFO 581384 --- [SB] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::               (v3.5.13)
-
-2026-05-16T22:47:34.685Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 581384 (/app/target/classes started by jules in /app)
-2026-05-16T22:47:34.686Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
-2026-05-16T22:47:35.175Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-16T22:47:35.201Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 6 JPA repository interfaces.
-2026-05-16T22:47:35.386Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-05-16T22:47:35.389Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-16T22:47:35.389Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
-2026-05-16T22:47:35.399Z  INFO 581384 --- [SB] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-05-16T22:47:35.400Z  INFO 581384 --- [SB] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 706 ms
-2026-05-16T22:47:35.561Z  INFO 581384 --- [SB] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-16T22:47:35.570Z  INFO 581384 --- [SB] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-05-16T22:47:35.594Z  INFO 581384 --- [SB] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-16T22:47:35.600Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-05-16T22:47:35.608Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:devdb user=SA
-2026-05-16T22:47:35.608Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-05-16T22:47:35.609Z  WARN 581384 --- [SB] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-16T22:47:35.610Z  INFO 581384 --- [SB] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-Hibernate: create global temporary table HT_person(person_id bigint not null, primary key (person_id)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_person(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_doctor(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_patient(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-2026-05-16T22:47:35.857Z  INFO 581384 --- [SB] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: create table appointment (appointment_id bigint generated by default as identity, appointment_time timestamp(6), status enum ('CANCELLED','CONFIRMED','PENDING','RESERVED'), doctor_id bigint, patient_id bigint, primary key (appointment_id))
-Hibernate: create table doctor (doctor_username varchar(50) not null, person_id bigint not null, primary key (person_id))
-Hibernate: create table patient (patient_username varchar(50) not null, person_id bigint not null, primary key (person_id))
-Hibernate: create table person (person_type varchar(31) not null, person_id bigint generated by default as identity, age integer check ((age>=0) and (age<=120)), email varchar(255) not null, first_name varchar(50) not null, gender boolean, last_name varchar(50) not null, password varchar(100) not null, phone varchar(255) not null, username varchar(50) not null, primary key (person_id))
-Hibernate: create table report (report_id bigint generated by default as identity, notes TEXT, appointment_id bigint not null, doctor_id bigint not null, primary key (report_id))
-Hibernate: create table slot (id bigint generated by default as identity, end_time varchar(255), start_time varchar(255), weekday enum ('FRIDAY','MONDAY','SATURDAY','SUNDAY','THURSDAY','TUESDAY','WEDNESDAY'), doctor_id bigint, primary key (id))
-Hibernate: alter table if exists doctor drop constraint if exists UKiipoq6hotfhywesb2xo8mx8oq
-Hibernate: alter table if exists doctor add constraint UKiipoq6hotfhywesb2xo8mx8oq unique (doctor_username)
-Hibernate: alter table if exists patient drop constraint if exists UKoite44ipliqyhyqvferj1yxom
-Hibernate: alter table if exists patient add constraint UKoite44ipliqyhyqvferj1yxom unique (patient_username)
-Hibernate: alter table if exists person drop constraint if exists UKfwmwi44u55bo4rvwsv0cln012
-Hibernate: alter table if exists person add constraint UKfwmwi44u55bo4rvwsv0cln012 unique (email)
-Hibernate: alter table if exists person drop constraint if exists UKn0i6d7rc1hqkjivk494g8j2qd
-Hibernate: alter table if exists person add constraint UKn0i6d7rc1hqkjivk494g8j2qd unique (username)
-Hibernate: alter table if exists report drop constraint if exists UKn60tl23bf9da1jsuybplvrg99
-Hibernate: alter table if exists report add constraint UKn60tl23bf9da1jsuybplvrg99 unique (appointment_id)
-Hibernate: alter table if exists appointment add constraint FKoeb98n82eph1dx43v3y2bcmsl foreign key (doctor_id) references doctor
-Hibernate: alter table if exists appointment add constraint FK4apif2ewfyf14077ichee8g06 foreign key (patient_id) references patient
-Hibernate: alter table if exists doctor add constraint FKjac3wynvf4efdxytrn6p8fkai foreign key (person_id) references person
-Hibernate: alter table if exists patient add constraint FKdxxw8hyl1nca8o4x5r5eap9kf foreign key (person_id) references person
-Hibernate: alter table if exists report add constraint FKorag1ww0f2a059d8w1rkwb8j2 foreign key (appointment_id) references appointment
-Hibernate: alter table if exists report add constraint FKj87ng5ed9hsx4q6dhvtas4iog foreign key (doctor_id) references doctor
-Hibernate: alter table if exists slot add constraint FKee9xprmms4nn9w5xlt62k1efe foreign key (doctor_id) references doctor
-2026-05-16T22:47:35.903Z  INFO 581384 --- [SB] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T22:47:35.972Z  WARN 581384 --- [SB] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'authService': Error creating bean with name 'authService' defined in file [/app/target/classes/dev/mr3/sb/service/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2026-05-16T22:47:35.973Z  INFO 581384 --- [SB] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T22:47:35.976Z  WARN 581384 --- [SB] [  restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
-2026-05-16T22:47:35.976Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2026-05-16T22:47:35.992Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2026-05-16T22:47:35.993Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2026-05-16T22:47:36.004Z  INFO 581384 --- [SB] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger :
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-05-16T22:47:36.036Z ERROR 581384 --- [SB] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   :
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in dev.mr3.sb.service.AuthService required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
-
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::               (v3.5.13)
-
-2026-05-16T22:47:37.501Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 581384 (/app/target/classes started by jules in /app)
-2026-05-16T22:47:37.501Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
-2026-05-16T22:47:37.794Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-16T22:47:37.812Z  INFO 581384 --- [SB] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 6 JPA repository interfaces.
-2026-05-16T22:47:38.039Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-05-16T22:47:38.048Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-16T22:47:38.048Z  INFO 581384 --- [SB] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
-2026-05-16T22:47:38.062Z  INFO 581384 --- [SB] [  restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2026-05-16T22:47:38.062Z  INFO 581384 --- [SB] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
-2026-05-16T22:47:38.190Z  INFO 581384 --- [SB] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-16T22:47:38.192Z  INFO 581384 --- [SB] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-05-16T22:47:38.206Z  INFO 581384 --- [SB] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-16T22:47:38.207Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2026-05-16T22:47:38.213Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:devdb user=SA
-2026-05-16T22:47:38.214Z  INFO 581384 --- [SB] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2026-05-16T22:47:38.215Z  WARN 581384 --- [SB] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-16T22:47:38.215Z  INFO 581384 --- [SB] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-Hibernate: create global temporary table HT_person(person_id bigint not null, primary key (person_id)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_person(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_doctor(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, doctor_username varchar(50), first_name varchar(50), last_name varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-Hibernate: create global temporary table HTE_patient(age integer, gender boolean, HTE_IDENTITY bigint generated by default as identity, person_id bigint, person_type varchar(31) not null, first_name varchar(50), last_name varchar(50), patient_username varchar(50), username varchar(50), password varchar(100), email varchar(255), phone varchar(255), primary key (HTE_IDENTITY)) TRANSACTIONAL
-2026-05-16T22:47:38.433Z  INFO 581384 --- [SB] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: create table appointment (appointment_id bigint generated by default as identity, appointment_time timestamp(6), status enum ('CANCELLED','CONFIRMED','PENDING','RESERVED'), doctor_id bigint, patient_id bigint, primary key (appointment_id))
-Hibernate: create table doctor (doctor_username varchar(50) not null, person_id bigint not null, primary key (person_id))
-Hibernate: create table patient (patient_username varchar(50) not null, person_id bigint not null, primary key (person_id))
-Hibernate: create table person (person_type varchar(31) not null, person_id bigint generated by default as identity, age integer check ((age>=0) and (age<=120)), email varchar(255) not null, first_name varchar(50) not null, gender boolean, last_name varchar(50) not null, password varchar(100) not null, phone varchar(255) not null, username varchar(50) not null, primary key (person_id))
-Hibernate: create table report (report_id bigint generated by default as identity, notes TEXT, appointment_id bigint not null, doctor_id bigint not null, primary key (report_id))
-Hibernate: create table slot (id bigint generated by default as identity, end_time varchar(255), start_time varchar(255), weekday enum ('FRIDAY','MONDAY','SATURDAY','SUNDAY','THURSDAY','TUESDAY','WEDNESDAY'), doctor_id bigint, primary key (id))
-Hibernate: alter table if exists doctor drop constraint if exists UKiipoq6hotfhywesb2xo8mx8oq
-Hibernate: alter table if exists doctor add constraint UKiipoq6hotfhywesb2xo8mx8oq unique (doctor_username)
-Hibernate: alter table if exists patient drop constraint if exists UKoite44ipliqyhyqvferj1yxom
-Hibernate: alter table if exists patient add constraint UKoite44ipliqyhyqvferj1yxom unique (patient_username)
-Hibernate: alter table if exists person drop constraint if exists UKfwmwi44u55bo4rvwsv0cln012
-Hibernate: alter table if exists person add constraint UKfwmwi44u55bo4rvwsv0cln012 unique (email)
-Hibernate: alter table if exists person drop constraint if exists UKn0i6d7rc1hqkjivk494g8j2qd
-Hibernate: alter table if exists person add constraint UKn0i6d7rc1hqkjivk494g8j2qd unique (username)
-Hibernate: alter table if exists report drop constraint if exists UKn60tl23bf9da1jsuybplvrg99
-Hibernate: alter table if exists report add constraint UKn60tl23bf9da1jsuybplvrg99 unique (appointment_id)
-Hibernate: alter table if exists appointment add constraint FKoeb98n82eph1dx43v3y2bcmsl foreign key (doctor_id) references doctor
-Hibernate: alter table if exists appointment add constraint FK4apif2ewfyf14077ichee8g06 foreign key (patient_id) references patient
-Hibernate: alter table if exists doctor add constraint FKjac3wynvf4efdxytrn6p8fkai foreign key (person_id) references person
-Hibernate: alter table if exists patient add constraint FKdxxw8hyl1nca8o4x5r5eap9kf foreign key (person_id) references person
-Hibernate: alter table if exists report add constraint FKorag1ww0f2a059d8w1rkwb8j2 foreign key (appointment_id) references appointment
-Hibernate: alter table if exists report add constraint FKj87ng5ed9hsx4q6dhvtas4iog foreign key (doctor_id) references doctor
-Hibernate: alter table if exists slot add constraint FKee9xprmms4nn9w5xlt62k1efe foreign key (doctor_id) references doctor
-2026-05-16T22:47:38.453Z  INFO 581384 --- [SB] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T22:47:38.765Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2026-05-16T22:47:38.904Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-05-16T22:47:38.929Z  WARN 581384 --- [SB] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration :
-
-Using generated security password: e1750feb-4d4c-4b92-b66c-4c74e45be9d6
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-05-16T22:47:38.931Z  INFO 581384 --- [SB] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-05-16T22:47:39.096Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:devdb'
-2026-05-16T22:47:39.125Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-05-16T22:47:39.155Z  INFO 581384 --- [SB] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-05-16T22:47:39.166Z  INFO 581384 --- [SB] [  restartedMain] dev.mr3.sb.SbApplication                 : Started SbApplication in 1.719 seconds (process running for 831.897)
-2026-05-16T22:47:39.172Z  INFO 581384 --- [SB] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2026-05-16T22:50:50.102Z  INFO 581384 --- [SB] [nio-8080-exec-2] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-16T22:50:50.102Z  INFO 581384 --- [SB] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-16T22:50:50.105Z  INFO 581384 --- [SB] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id where d1_1.username=?
-Hibernate: insert into person (age,email,first_name,gender,last_name,password,phone,username,person_type,person_id) values (?,?,?,?,?,?,?,?,'Doctor',default)
-Hibernate: insert into doctor (doctor_username,person_id) values (?,?)
-2026-05-16T22:50:52.470Z  INFO 581384 --- [SB] [nio-8080-exec-1] dev.mr3.sb.service.DoctorService         : Doctor signup success: username=drjohn
-Hibernate: select p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username from patient p1_0 join person p1_1 on p1_0.person_id=p1_1.person_id where p1_1.username=?
-Hibernate: insert into person (age,email,first_name,gender,last_name,password,phone,username,person_type,person_id) values (?,?,?,?,?,?,?,?,'Patient',default)
-Hibernate: insert into patient (patient_username,person_id) values (?,?)
-2026-05-16T22:50:55.686Z  INFO 581384 --- [SB] [nio-8080-exec-8] dev.mr3.sb.service.PatientService        : Patient signup success: username=janesmith
-Hibernate: select p1_0.person_id,p1_0.person_type,p1_0.age,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.last_name,p1_0.password,p1_0.phone,p1_0.username,p1_1.doctor_username,p1_2.patient_username from person p1_0 left join doctor p1_1 on p1_0.person_id=p1_1.person_id left join patient p1_2 on p1_0.person_id=p1_2.person_id where p1_0.username=?
-2026-05-16T22:50:57.456Z  INFO 581384 --- [SB] [nio-8080-exec-2] dev.mr3.sb.service.AuthService           : Login successful: username=janesmith, role=PATIENT
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-Hibernate: select aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from appointment aad1_0 left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where aad1_0.doctor_id=?
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join patient p1_0 on p1_0.person_id=a1_0.patient_id where p1_0.person_id=?
-Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id where d1_0.person_id=?
-Hibernate: insert into appointment (appointment_time,doctor_id,patient_id,status,appointment_id) values (?,?,?,?,default)
-2026-05-16T22:50:59.734Z  INFO 581384 --- [SB] [nio-8080-exec-6] dev.mr3.sb.service.AppointmentService    : Appointment booked: patientId=2, doctorId=1, time=2025-01-01T10:00
-Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join patient p1_0 on p1_0.person_id=a1_0.patient_id where p1_0.person_id=?
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
-Hibernate: select r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,r2_0.doctor_id,r2_0.report_id,r2_0.appointment_id,r2_0.notes,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.doctor_id,d3_0.person_id,d3_1.age,d3_1.email,d3_1.first_name,d3_1.gender,d3_1.last_name,d3_1.password,d3_1.phone,d3_1.username,d3_0.doctor_username,r1_0.notes from report r1_0 join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join report r2_0 on d1_0.person_id=r2_0.doctor_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id join doctor d3_0 on d3_0.person_id=r1_0.doctor_id join person d3_1 on d3_0.person_id=d3_1.person_id where r1_0.appointment_id=?
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-Hibernate: select a1_0.appointment_id,a1_0.appointment_time,a1_0.doctor_id,a1_0.patient_id,a1_0.status from appointment a1_0 left join patient p1_0 on p1_0.person_id=a1_0.patient_id where p1_0.person_id=?
-Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
-Hibernate: select r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,r2_0.doctor_id,r2_0.report_id,r2_0.appointment_id,r2_0.notes,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.doctor_id,d3_0.person_id,d3_1.age,d3_1.email,d3_1.first_name,d3_1.gender,d3_1.last_name,d3_1.password,d3_1.phone,d3_1.username,d3_0.doctor_username,r1_0.notes from report r1_0 join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join report r2_0 on d1_0.person_id=r2_0.doctor_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id join doctor d3_0 on d3_0.person_id=r1_0.doctor_id join person d3_1 on d3_0.person_id=d3_1.person_id where r1_0.appointment_id=?
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-Hibernate: select p1_0.person_id,p1_0.person_type,p1_0.age,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.last_name,p1_0.password,p1_0.phone,p1_0.username,p1_1.doctor_username,p1_2.patient_username from person p1_0 left join doctor p1_1 on p1_0.person_id=p1_1.person_id left join patient p1_2 on p1_0.person_id=p1_2.person_id where p1_0.username=?
-Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
-Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
-Hibernate: select aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from appointment aad1_0 left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where aad1_0.doctor_id=?
-2026-05-16T22:51:03.738Z  INFO 581384 --- [SB] [nio-8080-exec-4] dev.mr3.sb.service.AuthService           : Login successful: username=drjohn, role=DOCTOR
+2026-05-16T23:39:37.114Z  INFO 1198460 --- [SB] [nio-8080-exec-4] dev.mr3.sb.service.AuthService           : Login successful: username=drjohn, role=DOCTOR
 Hibernate: select d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,aad1_0.doctor_id,aad1_0.appointment_id,aad1_0.appointment_time,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,r1_0.report_id,r1_0.appointment_id,r1_0.doctor_id,d2_0.person_id,d2_1.age,d2_1.email,d2_1.first_name,d2_1.gender,d2_1.last_name,d2_1.password,d2_1.phone,d2_1.username,d2_0.doctor_username,r1_0.notes,aad1_0.status from doctor d1_0 join person d1_1 on d1_0.person_id=d1_1.person_id left join appointment aad1_0 on d1_0.person_id=aad1_0.doctor_id left join patient p1_0 on p1_0.person_id=aad1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id left join report r1_0 on aad1_0.appointment_id=r1_0.appointment_id left join doctor d2_0 on d2_0.person_id=r1_0.doctor_id left join person d2_1 on d2_0.person_id=d2_1.person_id where d1_0.person_id=?
 Hibernate: select s1_0.doctor_id,s1_0.id,s1_0.end_time,s1_0.start_time,s1_0.weekday from slot s1_0 where s1_0.doctor_id=?
 Hibernate: select r1_0.doctor_id,r1_0.report_id,r1_0.appointment_id,a1_0.appointment_id,a1_0.appointment_time,d1_0.person_id,d1_1.age,d1_1.email,d1_1.first_name,d1_1.gender,d1_1.last_name,d1_1.password,d1_1.phone,d1_1.username,d1_0.doctor_username,p1_0.person_id,p1_1.age,p1_1.email,p1_1.first_name,p1_1.gender,p1_1.last_name,p1_1.password,p1_1.phone,p1_1.username,p1_0.patient_username,a1_0.status,r1_0.notes from report r1_0 left join appointment a1_0 on a1_0.appointment_id=r1_0.appointment_id left join doctor d1_0 on d1_0.person_id=a1_0.doctor_id left join person d1_1 on d1_0.person_id=d1_1.person_id left join patient p1_0 on p1_0.person_id=a1_0.patient_id left join person p1_1 on p1_0.person_id=p1_1.person_id where r1_0.doctor_id=?
