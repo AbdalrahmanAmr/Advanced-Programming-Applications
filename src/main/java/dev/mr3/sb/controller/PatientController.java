@@ -63,12 +63,23 @@ public class PatientController {
     }
 
     @PostMapping("/profile")
-    public String updatePatientProfile(@Valid @ModelAttribute("person") Patient patientUpdate, HttpSession session, Model model , BindingResult result) {
+    public String updatePatientProfile(@Valid @ModelAttribute("person") Patient patientUpdate,
+                                       @RequestParam(value = "profilePictureFile", required = false) org.springframework.web.multipart.MultipartFile profilePictureFile,
+                                       HttpSession session, Model model , BindingResult result) {
         Person patient = getAuthorizedPatient(session);
         if (patient == null) {
             return "redirect:/auth/login";
         }
         if (result.hasErrors()) {
+            return "UserProfile";
+        }
+        try {
+            if (profilePictureFile != null && !profilePictureFile.isEmpty()) {
+                patientUpdate.setProfilePicture(profilePictureFile.getBytes());
+                patientUpdate.setProfilePictureContentType(profilePictureFile.getContentType());
+            }
+        } catch (java.io.IOException e) {
+            model.addAttribute("error", "Error uploading profile picture");
             return "UserProfile";
         }
         Patient updatedPatient = patientService.updatePatientProfile(patient.getPersonId(), patientUpdate);

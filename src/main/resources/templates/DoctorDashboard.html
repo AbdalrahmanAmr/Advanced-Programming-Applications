@@ -20,7 +20,10 @@
     <div class="container">
         <h1>Doctor Dashboard</h1>
         
-        <div class="welcome-section">
+        <div class="welcome-section" style="display: flex; align-items: center; gap: 20px;">
+            <div th:if="${doctor.profilePicture != null}">
+                <img th:src="@{'/files/profile-picture/' + ${doctor.personId}}" alt="Profile Picture" style="max-width: 100px; border-radius: 50%;">
+            </div>
             <p>Welcome back, <strong th:text="'Dr. ' + ${doctor.lastName}"></strong>! Here you can manage your schedule, view patient appointments, and write reports.</p>
         </div>
         

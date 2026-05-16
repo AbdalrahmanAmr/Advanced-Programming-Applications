@@ -21,6 +21,10 @@
 <div class="container medium">
     <h1 class="center">My Profile</h1>
 
+    <div class="profile-picture-container" th:if="${person.profilePicture != null}" style="text-align: center; margin-bottom: 20px;">
+        <img th:src="@{'/files/profile-picture/' + ${person.personId}}" alt="Profile Picture" style="max-width: 150px; border-radius: 50%;">
+    </div>
+
     <div class="profile-info">
         <div class="info-row">
             <div class="info-field">
@@ -54,13 +58,34 @@
                 <div class="info-value" th:text="${person.gender ? 'Male' : 'Female'}"></div>
             </div>
         </div>
+
+        <div th:if="${person.role == 'DOCTOR'}">
+            <div class="info-row" th:if="${person.summary != null and !person.summary.isEmpty()}">
+                <div class="info-field" style="flex: 100%;">
+                    <div class="info-label">Summary</div>
+                    <div class="info-value" th:text="${person.summary}"></div>
+                </div>
+            </div>
+
+            <div class="info-row" th:if="${person.certificates != null and !person.certificates.isEmpty()}">
+                <div class="info-field" style="flex: 100%;">
+                    <div class="info-label">Certificates</div>
+                    <div class="info-value">
+                        <ul>
+                            <li th:each="cert, iterStat : ${person.certificates}">
+                                <a th:href="@{'/files/certificate/' + ${person.personId} + '/' + ${iterStat.index}}" th:text="${cert.fileName}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <h2>Edit Profile</h2>
-    <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
+    <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}" enctype="multipart/form-data">
         <input type="hidden" name="username" th:value="${person.username}">
         <input type="hidden" name="password" th:value="${person.password}">
-        <input type="hidden" name="doctorUsername" th:value="${person.doctorUsername}">
         <div class="form-group">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" minlength = "3" maxlength = "50" required>
@@ -84,6 +109,23 @@
         <div class="form-group">
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" th:value="${person.age}" min="18" max = "120" required>
+        </div>
+
+        <div class="form-group">
+            <label for="profilePictureFile">Profile Picture:</label>
+            <input type="file" id="profilePictureFile" name="profilePictureFile" accept="image/*">
+        </div>
+
+        <div th:if="${person.role == 'DOCTOR'}">
+            <div class="form-group">
+                <label for="summary">Summary:</label>
+                <textarea id="summary" name="summary" rows="4" style="width: 100%;" th:text="${person.summary}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="certificateFiles">Certificates (You can select multiple files):</label>
+                <input type="file" id="certificateFiles" name="certificateFiles" multiple accept="application/pdf,image/*">
+            </div>
         </div>
 
         <div class="button-group-form">

@@ -10,10 +10,6 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "person_id")
 public class Patient extends Person {
 
-    @NotBlank(message = "Username is required")
-    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
-    @Column(unique = true)
-    private String patientUsername;
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointmentsAsPatient;
 
@@ -35,13 +31,4 @@ public class Patient extends Person {
         this.appointmentsAsPatient = appointmentsAsPatient;
     }
 
-    public String getPatientUsername() {
-        return patientUsername;
-    }
-
-    public void setPatientUsername(String patientUsername) {
-        this.patientUsername = patientUsername;
-        super.setUsername(patientUsername);
-
-    }
 }

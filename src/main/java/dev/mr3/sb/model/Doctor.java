@@ -10,11 +10,6 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "person_id") // FK to person table
 public class Doctor extends Person {
 
-    @NotBlank(message = "Username is required")
-    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
-    @Column(unique = true)
-    private String doctorUsername;
-
     @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private List<Appointment> appointmentsAsDoctor;
 
@@ -23,6 +18,12 @@ public class Doctor extends Person {
 
     @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
     private List<Report> reports;
+
+    @Column(length = 1000)
+    private String summary;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Certificate> certificates;
 
     public Doctor() {}
 
@@ -57,12 +58,20 @@ public class Doctor extends Person {
         this.reports = reports;
     }
 
-    public String getDoctorUsername() {
-        return doctorUsername;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setDoctorUsername(String doctorUsername) {
-        this.doctorUsername = doctorUsername;
-        super.setUsername(doctorUsername);
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
+
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
+    }
+
 }

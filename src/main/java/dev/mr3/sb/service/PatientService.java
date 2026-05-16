@@ -35,6 +35,10 @@ public class PatientService {
             existingPatient.setEmail(patientUpdate.getEmail());
             existingPatient.setPhone(patientUpdate.getPhone());
             existingPatient.setAge(patientUpdate.getAge());
+            if (patientUpdate.getProfilePicture() != null) {
+                existingPatient.setProfilePicture(patientUpdate.getProfilePicture());
+                existingPatient.setProfilePictureContentType(patientUpdate.getProfilePictureContentType());
+            }
             Patient updatedPatient = patientRepository.save(existingPatient);
             logger.info("Patient profile updated: patientId={}", patientId);
             return updatedPatient;
