@@ -112,39 +112,27 @@ public class PatientController {
             return "redirect:/auth/login";
         }
         if (result.hasErrors()) {
-            populateBookAppointmentModel(model, patient);
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("person", patient);
+            model.addAttribute("doctors", doctors);
             return "BookVisit";
         }
         
         Doctor doctor = doctorService.getDoctorById(appointmentDto.getDoctorId());
-        if (doctor == null) {
-            model.addAttribute("error", "Selected doctor was not found");
-            populateBookAppointmentModel(model, patient);
-            return "BookVisit";
-        }
         
         Appointment appointment = new Appointment();
         appointment.setAppointmentTime(appointmentDto.getAppointmentTime());
 
         try {
-            Appointment bookedAppointment = appointmentService.bookAppointment(appointment, doctor, (Patient) patient);
-            if (bookedAppointment == null) {
-                model.addAttribute("error", "Unable to book appointment");
-                populateBookAppointmentModel(model, patient);
-                return "BookVisit";
-            }
+            appointmentService.bookAppointment(appointment, doctor, (Patient) patient);
             return "redirect:/patient/appointments?success";
         } catch (RuntimeException e) {
             model.addAttribute("error", e.getMessage());
-            populateBookAppointmentModel(model, patient);
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("person", patient);
+            model.addAttribute("doctors", doctors);
             return "BookVisit";
         }
-    }
-
-    private void populateBookAppointmentModel(Model model, Person patient) {
-        List<Doctor> doctors = doctorService.getAllDoctors();
-        model.addAttribute("person", patient);
-        model.addAttribute("doctors", doctors);
     }
 
     @PostMapping("/appointments/{id}/cancel")
