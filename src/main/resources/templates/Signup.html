@@ -22,42 +22,43 @@
             </div>
         </div>
 
-        <!-- Patient Registration Form -->
-        <form method="post" th:action="@{/auth/register/patient}" id="patientForm">
+        <!-- Registration Form -->
+        <form method="post" th:action="@{/auth/register}" th:object="${registrationDto}">
+            <input type="hidden" id="roleInput" name="role" value="PATIENT">
             <div class="form-row">
                 <div class="form-group">
-                    <label for="patFirstName">First Name:</label>
-                    <input type="text" id="patFirstName" name="firstName" minlength = "3" maxlength = "50" required>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" minlength="2" maxlength="50" required>
                 </div>
                 <div class="form-group">
-                    <label for="patLastName">Last Name:</label>
-                    <input type="text" id="patLastName" name="lastName" minlength = "3" maxlength = "50" required>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" minlength="2" maxlength="50" required>
                 </div>
             </div>
             
             <div class="form-group">
-                <label for="patientUsername">Username:</label>
-                <input type="text" id="patientUsername" name="patientUsername" minlength = "3" maxlength = "50" required>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" minlength="3" maxlength="50" required>
             </div>
             
             <div class="form-group">
-                <label for="patEmail">Email:</label>
-                <input type="email" id="patEmail" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             
             <div class="form-group">
-                <label for="patPassword">Password:</label>
-                <input type="password" id="patPassword" name="password" minlength = "6" maxlength = "100" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" minlength="6" maxlength="100" required>
             </div>
             
             <div class="form-row">
                 <div class="form-group">
-                    <label for="patAge">Age:</label>
-                    <input type="number" id="patAge" name="age" min="18" required>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="0" required>
                 </div>
                 <div class="form-group">
-                    <label for="patPhone">Phone:</label>
-                    <input type="text" id="patPhone" name="phone" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
                 </div>
             </div>
             
@@ -73,61 +74,7 @@
                 </div>
             </div>
             
-            <button type="submit">Sign Up as Patient</button>
-        </form>
-
-        <!-- DoctorController Registration Form -->
-        <form method="post" th:action="@{/auth/register/doctor}" id="doctorForm" style="display: none;">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="docFirstName">First Name:</label>
-                    <input type="text" id="docFirstName" name="firstName">
-                </div>
-                <div class="form-group">
-                    <label for="docLastName">Last Name:</label>
-                    <input type="text" id="docLastName" name="lastName">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="doctorUsername">Username:</label>
-                <input type="text" id="doctorUsername" name="doctorUsername" minlength = "3" maxlength = "50" >
-            </div>
-            
-            <div class="form-group">
-                <label for="docEmail">Email:</label>
-                <input type="email" id="docEmail" name="email">
-            </div>
-            
-            <div class="form-group">
-                <label for="docPassword">Password:</label>
-                <input type="password" id="docPassword" name="password" minlength="6" maxlength = "100" required>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="docAge">Age:</label>
-                    <input type="number" id="docAge" name="age" min="18" max = "120">
-                </div>
-                <div class="form-group">
-                    <label for="docPhone">Phone:</label>
-                    <input type="text" id="docPhone" name="phone" minlength = "7" maxlength = "15" pattern="^\+?[0-9]{7,15}$" title="Must be 7-15 digits, optionally starting with +" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label>Gender:</label>
-                <div class="radio-group">
-                    <label>
-                        <input type="radio" name="gender" value="true"> Male
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="false"> Female
-                    </label>
-                </div>
-            </div>
-            
-            <button type="submit">Sign Up as Doctor</button>
+            <button type="submit" id="submitBtn">Sign Up as Patient</button>
         </form>
         
         <div class="login-link">
@@ -138,20 +85,15 @@
     <script>
         function toggleRole() {
             var isDoctor = document.getElementById('roleDoctor').checked;
-            var patientForm = document.getElementById('patientForm');
-            var doctorForm = document.getElementById('doctorForm');
+            var roleInput = document.getElementById('roleInput');
+            var submitBtn = document.getElementById('submitBtn');
             
             if (isDoctor) {
-                patientForm.style.display = 'none';
-                doctorForm.style.display = 'block';
-                // Toggle required attributes
-                patientForm.querySelectorAll('input').forEach(function(input) { input.removeAttribute('required'); });
-                doctorForm.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"]').forEach(function(input) { input.setAttribute('required', ''); });
+                roleInput.value = 'DOCTOR';
+                submitBtn.innerText = 'Sign Up as Doctor';
             } else {
-                patientForm.style.display = 'block';
-                doctorForm.style.display = 'none';
-                patientForm.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"]').forEach(function(input) { input.setAttribute('required', ''); });
-                doctorForm.querySelectorAll('input').forEach(function(input) { input.removeAttribute('required'); });
+                roleInput.value = 'PATIENT';
+                submitBtn.innerText = 'Sign Up as Patient';
             }
         }
     </script>

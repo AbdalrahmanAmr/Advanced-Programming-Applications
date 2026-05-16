@@ -37,7 +37,7 @@ public abstract class Person {
     @Column
     private String lastName;
 
-    @Min(value = 18, message = "Patient must be at least 18 years old")
+    @Min(value = 0, message = "Age must be positive")
     @Max(value = 120, message = "Age cannot exceed 120")
     @Column
     private int age;

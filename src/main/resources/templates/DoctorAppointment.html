@@ -24,7 +24,6 @@
                 <thead>
                     <tr>
                         <th>Patient</th>
-                        <th>Day</th>
                         <th>Time</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -33,8 +32,7 @@
                 <tbody>
                     <tr th:each="appt : ${appointments}">
                         <td th:text="${appt.patient.firstName + ' ' + appt.patient.lastName}"></td>
-                        <td th:text="${appt.weekday}"></td>
-                        <td th:text="${appt.appointmenttime}"></td>
+                        <td th:text="${#temporals.format(appt.appointmentTime, 'yyyy-MM-dd HH:mm')}"></td>
                         <td th:text="${appt.status}"></td>
                         <td>
                             <div th:if="${appt.status.name() == 'PENDING'}" style="display: flex; gap: 10px;">

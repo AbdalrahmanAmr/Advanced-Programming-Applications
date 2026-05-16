@@ -1,9 +1,11 @@
 package dev.mr3.sb.service;
 
+import dev.mr3.sb.exception.PatientAlreadyExistsException;
 import dev.mr3.sb.model.Patient;
 import dev.mr3.sb.repository.PatientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,17 +14,20 @@ import java.util.Optional;
 public class PatientService {
     private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
     private final PatientRepository patientRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public PatientService(PatientRepository patientRepository) {
+    public PatientService(PatientRepository patientRepository, PasswordEncoder passwordEncoder) {
         this.patientRepository = patientRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void SignupPatient(Patient patient) {
         Optional<Patient> existing = patientRepository.findByUsername(patient.getUsername());
         if (existing.isPresent()) {
             logger.warn("Patient signup failure: username already exists, username={}", patient.getUsername());
-            throw new RuntimeException("Username already exists");
+            throw new PatientAlreadyExistsException("Username already exists");
         }
+        patient.setPassword(passwordEncoder.encode(patient.getPassword()));
         patientRepository.save(patient);
         logger.info("Patient signup success: username={}", patient.getUsername());
     }

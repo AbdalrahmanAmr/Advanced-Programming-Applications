@@ -6,6 +6,7 @@ import dev.mr3.sb.model.Report;
 import dev.mr3.sb.repository.DoctorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -15,9 +16,11 @@ import java.util.List;
 public class DoctorService {
     private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
     private final DoctorRepository doctorRepository;
+    private final PasswordEncoder passwordEncoder;
     
-    public DoctorService(DoctorRepository doctorRepository) {
+    public DoctorService(DoctorRepository doctorRepository, PasswordEncoder passwordEncoder) {
         this.doctorRepository = doctorRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public boolean SignupDoctor(Doctor doctor) {
@@ -26,6 +29,7 @@ public class DoctorService {
                 logger.warn("Doctor signup failure: username already exists, username={}", doctor.getUsername());
                 throw new RuntimeException("Username already exists");
             }
+            doctor.setPassword(passwordEncoder.encode(doctor.getPassword()));
             doctorRepository.save(doctor);
             logger.info("Doctor signup success: username={}", doctor.getUsername());
             return true;
