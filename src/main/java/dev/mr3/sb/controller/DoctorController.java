@@ -56,13 +56,34 @@ public class DoctorController {
     }
 
     @PostMapping("/profile")
-    public String updateDoctorProfile(@Valid @ModelAttribute("person") Doctor doctorUpdate, HttpSession session, Model model , BindingResult result) {
+    public String updateDoctorProfile(@Valid @ModelAttribute("person") Doctor doctorUpdate,
+                                      @RequestParam(value = "profilePictureFile", required = false) org.springframework.web.multipart.MultipartFile profilePictureFile,
+                                      @RequestParam(value = "certificateFiles", required = false) org.springframework.web.multipart.MultipartFile[] certificateFiles,
+                                      HttpSession session, Model model , BindingResult result) {
         Person doctor = getAuthorizeddoctor(session);
         if (doctor == null) {
             return "redirect:/auth/login";
         }
         if (result.hasErrors()) {
             return "UserProfile"; // Reload the profile page so the user sees the errors
+        }
+        try {
+            if (profilePictureFile != null && !profilePictureFile.isEmpty()) {
+                doctorUpdate.setProfilePicture(profilePictureFile.getBytes());
+                doctorUpdate.setProfilePictureContentType(profilePictureFile.getContentType());
+            }
+            if (certificateFiles != null && certificateFiles.length > 0) {
+                java.util.List<dev.mr3.sb.model.Certificate> certificates = new java.util.ArrayList<>();
+                for (org.springframework.web.multipart.MultipartFile file : certificateFiles) {
+                    if (!file.isEmpty()) {
+                        certificates.add(new dev.mr3.sb.model.Certificate(file.getBytes(), file.getContentType(), file.getOriginalFilename(), doctorUpdate));
+                    }
+                }
+                doctorUpdate.setCertificates(certificates);
+            }
+        } catch (java.io.IOException e) {
+            model.addAttribute("error", "Error uploading files");
+            return "UserProfile";
         }
         Doctor updateddoctor = doctorService.updateDoctorProfile(doctor.getPersonId(), doctorUpdate);
         if (updateddoctor != null) {

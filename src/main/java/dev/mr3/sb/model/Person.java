@@ -50,6 +50,13 @@ public abstract class Person {
     @Column
     private String phone;
 
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] profilePicture;
+
+    @Column
+    private String profilePictureContentType;
+
     public abstract String getRole();
 
     // Getters and setters...
@@ -106,5 +113,21 @@ public abstract class Person {
     }
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getProfilePictureContentType() {
+        return profilePictureContentType;
+    }
+
+    public void setProfilePictureContentType(String profilePictureContentType) {
+        this.profilePictureContentType = profilePictureContentType;
     }
 }

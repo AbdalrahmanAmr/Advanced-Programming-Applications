@@ -20,7 +20,10 @@
     <div class="container">
         <h1>Patient Dashboard</h1>
         
-        <div class="welcome-section">
+        <div class="welcome-section" style="display: flex; align-items: center; gap: 20px;">
+            <div th:if="${patient.profilePicture != null}">
+                <img th:src="@{'/files/profile-picture/' + ${patient.personId}}" alt="Profile Picture" style="max-width: 100px; border-radius: 50%;">
+            </div>
             <p>Welcome back, <strong th:text="${patient.firstName}"></strong>! Here you can manage your appointments and view your medical information.</p>
         </div>
         

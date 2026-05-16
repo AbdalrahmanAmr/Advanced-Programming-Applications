@@ -51,6 +51,25 @@ public class DoctorService {
             existingDoctor.setEmail(doctorUpdate.getEmail());
             existingDoctor.setPhone(doctorUpdate.getPhone());
             existingDoctor.setAge(doctorUpdate.getAge());
+            existingDoctor.setSummary(doctorUpdate.getSummary());
+            if (doctorUpdate.getProfilePicture() != null) {
+                existingDoctor.setProfilePicture(doctorUpdate.getProfilePicture());
+                existingDoctor.setProfilePictureContentType(doctorUpdate.getProfilePictureContentType());
+            }
+            if (doctorUpdate.getCertificates() != null && !doctorUpdate.getCertificates().isEmpty()) {
+                if (existingDoctor.getCertificates() != null) {
+                    existingDoctor.getCertificates().clear();
+                    for(dev.mr3.sb.model.Certificate cert : doctorUpdate.getCertificates()) {
+                        cert.setDoctor(existingDoctor);
+                        existingDoctor.getCertificates().add(cert);
+                    }
+                } else {
+                    for(dev.mr3.sb.model.Certificate cert : doctorUpdate.getCertificates()) {
+                        cert.setDoctor(existingDoctor);
+                    }
+                    existingDoctor.setCertificates(doctorUpdate.getCertificates());
+                }
+            }
             Doctor updatedDoctor = doctorRepository.save(existingDoctor);
             logger.info("Doctor profile updated: doctorId={}", doctorId);
             return updatedDoctor;
