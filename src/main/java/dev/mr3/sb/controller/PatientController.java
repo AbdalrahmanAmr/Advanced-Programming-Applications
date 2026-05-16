@@ -119,6 +119,13 @@ public class PatientController {
         }
         
         Doctor doctor = doctorService.getDoctorById(appointmentDto.getDoctorId());
+        if (doctor == null) {
+            model.addAttribute("error", "Selected doctor was not found");
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("person", patient);
+            model.addAttribute("doctors", doctors);
+            return "BookVisit";
+        }
         
         Appointment appointment = new Appointment();
         appointment.setAppointmentTime(appointmentDto.getAppointmentTime());

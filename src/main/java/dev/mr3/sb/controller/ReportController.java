@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayOutputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class ReportController {
     }
 
     @GetMapping("/daily-schedule")
-    public ResponseEntity<byte[]> getDailySchedulePdf(@RequestParam(required = false) String date) {
+    public ResponseEntity<?> getDailySchedulePdf(@RequestParam(required = false) String date) {
         try {
             LocalDate targetDate = date != null ? LocalDate.parse(date) : LocalDate.now();
 
@@ -70,8 +71,11 @@ public class ReportController {
 
             return new ResponseEntity<>(out.toByteArray(), headers, HttpStatus.OK);
 
+        } catch (DateTimeParseException e) {
+            return ResponseEntity.badRequest().body("Invalid date format. Use YYYY-MM-DD.");
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Unable to generate the daily schedule report.");
         }
     }
 }
