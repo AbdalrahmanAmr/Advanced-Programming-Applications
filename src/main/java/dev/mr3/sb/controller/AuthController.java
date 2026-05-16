@@ -99,7 +99,11 @@ public class AuthController {
                 doctor.setAge(registrationDto.getAge());
                 doctor.setPhone(registrationDto.getPhone());
                 doctor.setGender(registrationDto.isGender());
-                doctorService.SignupDoctor(doctor);
+                boolean signupSucceeded = doctorService.SignupDoctor(doctor);
+                if (!signupSucceeded) {
+                    model.addAttribute("error", "Doctor registration failed.");
+                    return "Signup";
+                }
             }
             return "redirect:/auth/login";
         } catch (Exception e) {
