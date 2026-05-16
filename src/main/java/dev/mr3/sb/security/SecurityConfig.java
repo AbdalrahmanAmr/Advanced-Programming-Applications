@@ -27,7 +27,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**")) // Enable CSRF for standard web, ignore REST API
+            .csrf(csrf -> {}) // Keep CSRF protection enabled, including for API requests that may be authenticated via cookies
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**", "/css/**", "/style.css", "/js/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
