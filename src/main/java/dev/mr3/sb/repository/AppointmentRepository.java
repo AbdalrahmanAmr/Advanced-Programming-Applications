@@ -2,7 +2,6 @@ package dev.mr3.sb.repository;
 
 import dev.mr3.sb.model.Appointment;
 import dev.mr3.sb.model.Status;
-import dev.mr3.sb.model.Weekday;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
