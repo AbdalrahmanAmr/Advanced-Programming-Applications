@@ -107,12 +107,9 @@ public class AuthController {
                 doctor.setPhone(registrationDto.getPhone());
                 doctor.setGender(registrationDto.isGender());
                 if (!doctorService.SignupDoctor(doctor)) {
-                    model.addAttribute("error", "Registration failed");
+                    model.addAttribute("error", "Unable to create doctor account. Please try again.");
                     return "Signup";
                 }
-            } else {
-                model.addAttribute("error", "Please select a valid account type");
-                return "Signup";
             }
             return "redirect:/auth/login";
         } catch (Exception e) {
