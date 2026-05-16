@@ -52,6 +52,7 @@ public class SecurityConfig {
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/doctor/**").hasAnyRole("DOCTOR", "ADMIN")
                 .requestMatchers("/patient/**").hasAnyRole("PATIENT", "ADMIN")
+                .requestMatchers("/api/reports/**").hasAnyRole("DOCTOR", "ADMIN")
                 .anyRequest().authenticated()
             )
             .formLogin(AbstractHttpConfigurer::disable)
