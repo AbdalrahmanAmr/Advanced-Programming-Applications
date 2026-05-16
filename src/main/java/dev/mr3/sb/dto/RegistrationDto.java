@@ -4,6 +4,8 @@ import jakarta.validation.constraints.*;
 
 public class RegistrationDto {
 
+    @NotBlank(message = "Account type is required")
+    @Pattern(regexp = "PATIENT|DOCTOR", message = "Please select a valid account type")
     private String role; // "PATIENT" or "DOCTOR"
 
     @NotBlank(message = "Username is required")
@@ -27,7 +29,7 @@ public class RegistrationDto {
     @Size(min = 2, max = 50)
     private String lastName;
 
-    @Min(value = 0)
+    @Min(value = 1)
     @Max(value = 120)
     private int age;
 
