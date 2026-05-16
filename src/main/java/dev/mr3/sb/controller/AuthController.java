@@ -79,11 +79,11 @@ public class AuthController {
     @PostMapping("/register")
     public String Register(@Valid @ModelAttribute("registrationDto") dev.mr3.sb.dto.RegistrationDto registrationDto, BindingResult result, Model model ) {
         if (result.hasErrors()) {
+            String errorMessage = "Please correct the highlighted registration errors";
             if (result.hasFieldErrors("role")) {
-                model.addAttribute("error", "Please select a valid account type");
-            } else {
-                model.addAttribute("error", "Please correct the highlighted registration errors");
+                errorMessage = "Please select a valid account type";
             }
+            model.addAttribute("error", errorMessage);
             return "Signup";
         }
         try {

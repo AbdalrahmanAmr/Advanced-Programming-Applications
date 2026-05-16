@@ -37,7 +37,7 @@ public class AuthControllerTest {
     private JwtUtil jwtUtil;
 
     @Test
-    public void testLoginSuccessRedirectsToDashboardAndSetsCookie() throws Exception {
+    public void testLoginSuccessOverHttpsRedirectsToDashboardAndSetsSecureCookie() throws Exception {
         Patient mockPatient = new Patient();
         mockPatient.setUsername("testuser");
         mockPatient.setPatientUsername("testuser");
