@@ -1,0 +1,3 @@
+## 2024-05-17 - Prevent accidental data loss with destructive actions
+**Learning:** Forms containing destructive actions (such as canceling an appointment) need explicit user confirmation. In the DoctorAppointment view, a "Cancel" button existed without a confirmation dialog, which could lead to accidental cancellations by doctors. Additionally, classes `btn-success` and `btn-danger` were being used that didn't actually exist in the shared `style.css` which only had `btn-blue` and `btn-red`.
+**Action:** Always verify that CSS classes used for semantic meaning actually exist in the project's design system/stylesheet, and ensure any destructive actions have an explicit confirmation prompt (`confirm('...')` or a modal). Tooltips (`title`) also help clarify button actions.

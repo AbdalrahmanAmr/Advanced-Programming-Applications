@@ -38,11 +38,11 @@
                             <div th:if="${appt.status.name() == 'PENDING'}" style="display: flex; gap: 10px;">
                                 <form method="post" th:action="@{/doctor/appointments/{id}/status(id=${appt.appointmentId})}" style="display: inline;">
                                     <input type="hidden" name="status" value="CONFIRMED">
-                                    <button type="submit" class="btn btn-success">Confirm</button>
+                                    <button type="submit" class="btn btn-blue" title="Confirm appointment">Confirm</button>
                                 </form>
                                 <form method="post" th:action="@{/doctor/appointments/{id}/status(id=${appt.appointmentId})}" style="display: inline;">
                                     <input type="hidden" name="status" value="CANCELLED">
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <button type="submit" class="btn btn-red" title="Cancel appointment" onclick="return confirm('Cancel this appointment?');">Cancel</button>
                                 </form>
                             </div>
                             <div th:if="${appt.status.name() != 'PENDING'}">
