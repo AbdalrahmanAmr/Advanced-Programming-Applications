@@ -67,7 +67,7 @@ public class ReportController {
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
-            headers.setContentDispositionFormData("filename", "schedule_" + targetDate + ".pdf");
+            headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"schedule_" + targetDate + ".pdf\"");
 
             return new ResponseEntity<>(out.toByteArray(), headers, HttpStatus.OK);
 
