@@ -25,7 +25,6 @@
             <thead>
             <tr>
                 <th>Doctor</th>
-                <th>Day</th>
                 <th>Time</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -34,8 +33,7 @@
             <tbody>
             <tr th:each="appt : ${appointments}">
                 <td th:text="${appt.doctor.firstName + ' ' + appt.doctor.lastName}"></td>
-                <td th:text="${appt.weekday}"></td>
-                <td th:text="${appt.appointmenttime}"></td>
+                <td th:text="${#temporals.format(appt.appointmentTime, 'yyyy-MM-dd HH:mm')}"></td>
                 <td th:text="${appt.status}"></td>
                 <td>
                     <form method="post" th:action="@{/patient/appointments/{id}/cancel(id=${appt.appointmentId})}" class="inline-form">

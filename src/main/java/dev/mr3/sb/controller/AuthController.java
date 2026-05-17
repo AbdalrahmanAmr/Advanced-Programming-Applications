@@ -11,6 +11,9 @@ import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.PatientService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import dev.mr3.sb.security.JwtUtil;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +30,8 @@ public class AuthController {
     private PatientService patientService;
     @Autowired
     private DoctorService doctorService;
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @GetMapping("/login")
     public String RedirectTologinPage() {
@@ -34,18 +39,24 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String ValidateCredential(@RequestParam String username, @RequestParam String password, HttpSession session, Model model) {
-        //do I need to set session here or in service layer?
-        //do I need to set cookie here or in service layer?
+    public String ValidateCredential(@RequestParam String username, @RequestParam String password, HttpSession session, HttpServletResponse response, Model model) {
         try {
             Person person = authService.validateLogin(username, password);
+
+            // Generate JWT and set in Cookie
+            String token = jwtUtil.generateToken(person.getUsername(), person.getRole());
+            Cookie jwtCookie = new Cookie("JWT", token);
+            jwtCookie.setHttpOnly(true);
+            jwtCookie.setPath("/");
+            response.addCookie(jwtCookie);
+
             if (person.getRole().equals("DOCTOR")) {
                 session.setAttribute("doctor", person);
                 return "redirect:/doctor/dashboard";
-            }else if (person.getRole().equals("PATIENT")) {
+            } else if (person.getRole().equals("PATIENT")) {
                 session.setAttribute("patient", person);
                 return "redirect:/patient/dashboard";
-            }else
+            } else
                 return "index";
 
         } catch (RuntimeException e) {
@@ -57,44 +68,45 @@ public class AuthController {
 
     @GetMapping("/register")
     public String RedirectSignupPage(Model model) {
-        model.addAttribute("patient", new Patient());
-        model.addAttribute("doctor", new Doctor());
+        model.addAttribute("registrationDto", new dev.mr3.sb.dto.RegistrationDto());
         return "Signup";
     }
 
-    @PostMapping("/register/patient")
-    public String RegisterPatient(@Valid @ModelAttribute Patient patient, BindingResult result, Model model ) {
+    @PostMapping("/register")
+    public String Register(@Valid @ModelAttribute("registrationDto") dev.mr3.sb.dto.RegistrationDto registrationDto, BindingResult result, Model model ) {
         if (result.hasErrors()) {
-            model.addAttribute("doctor", new Doctor()); //
-            return "Signup";}
-        try {
-            patientService.SignupPatient(patient);
-            // After successful registration.
-            return "redirect:/auth/login";
-        } catch (Exception e) {
-            System.out.println("Patient registration failed: " + e.getMessage());
-            model.addAttribute("error", e.getMessage());
-            model.addAttribute("doctor", new Doctor()); //
             return "Signup";
         }
-    }
-
-    @PostMapping("/register/doctor")
-    public String RegisterDoctor(@Valid @ModelAttribute Doctor doctor, BindingResult result, Model model ) {
-        if (result.hasErrors()) {
-            model.addAttribute("patient", new Patient()); //
-            return "Signup";}
         try {
-            doctorService.SignupDoctor(doctor);
-            // After successful registration.
+            if ("PATIENT".equalsIgnoreCase(registrationDto.getRole())) {
+                Patient patient = new Patient();
+                patient.setFirstName(registrationDto.getFirstName());
+                patient.setLastName(registrationDto.getLastName());
+                patient.setPatientUsername(registrationDto.getUsername());
+                patient.setPassword(registrationDto.getPassword());
+                patient.setEmail(registrationDto.getEmail());
+                patient.setAge(registrationDto.getAge());
+                patient.setPhone(registrationDto.getPhone());
+                patient.setGender(registrationDto.isGender());
+                patientService.SignupPatient(patient);
+            } else if ("DOCTOR".equalsIgnoreCase(registrationDto.getRole())) {
+                Doctor doctor = new Doctor();
+                doctor.setFirstName(registrationDto.getFirstName());
+                doctor.setLastName(registrationDto.getLastName());
+                doctor.setDoctorUsername(registrationDto.getUsername());
+                doctor.setPassword(registrationDto.getPassword());
+                doctor.setEmail(registrationDto.getEmail());
+                doctor.setAge(registrationDto.getAge());
+                doctor.setPhone(registrationDto.getPhone());
+                doctor.setGender(registrationDto.isGender());
+                doctorService.SignupDoctor(doctor);
+            }
             return "redirect:/auth/login";
         } catch (Exception e) {
-            System.out.println("Doctor registration failed: " + e.getMessage());
+            System.out.println("Registration failed: " + e.getMessage());
             model.addAttribute("error", e.getMessage());
-            model.addAttribute("patient", new Patient()); //
             return "Signup";
         }
-
     }
         @GetMapping("/logout")
         public String Logout(HttpSession session) {

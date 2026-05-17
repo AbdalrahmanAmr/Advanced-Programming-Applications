@@ -1,6 +1,7 @@
 package dev.mr3.sb.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Appointment {
@@ -9,11 +10,7 @@ public class Appointment {
     private Long appointmentId;
 
     @Column
-    @Enumerated(EnumType.STRING)
-    private Weekday weekday;
-
-    @Column
-    private String appointmenttime;
+    private LocalDateTime appointmentTime;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -32,9 +29,8 @@ public class Appointment {
 
     public Appointment() {}
 
-    public Appointment(Weekday weekday, String appointmenttime, Status status, Doctor doctor, Patient patient) {
-        this.weekday = weekday;
-        this.appointmenttime = appointmenttime;
+    public Appointment(LocalDateTime appointmentTime, Status status, Doctor doctor, Patient patient) {
+        this.appointmentTime = appointmentTime;
         this.status = status;
         this.doctor = doctor;
         this.patient = patient;
@@ -46,17 +42,11 @@ public class Appointment {
     public void setAppointmentId(Long appointmentId) {
         this.appointmentId = appointmentId;
     }
-    public Weekday getWeekday() {
-        return weekday;
+    public LocalDateTime getAppointmentTime() {
+        return appointmentTime;
     }
-    public void setWeekday(Weekday weekday) {
-        this.weekday = weekday;
-    }
-    public String getAppointmenttime() {
-        return appointmenttime;
-    }
-    public void setAppointmenttime(String appointmenttime) {
-        this.appointmenttime = appointmenttime;
+    public void setAppointmentTime(LocalDateTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
     public Status getStatus() {
         return status;

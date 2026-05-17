@@ -3,8 +3,8 @@ package dev.mr3.sb.controller;
 import dev.mr3.sb.model.Appointment;
 import dev.mr3.sb.model.Doctor;
 import dev.mr3.sb.model.Patient;
+import dev.mr3.sb.dto.AppointmentDto;
 import dev.mr3.sb.model.Person;
-import dev.mr3.sb.model.Weekday;
 import dev.mr3.sb.service.AppointmentService;
 import dev.mr3.sb.service.DoctorService;
 import dev.mr3.sb.service.PatientService;
@@ -100,14 +100,12 @@ public class PatientController {
         List<Doctor> doctors = doctorService.getAllDoctors();
         model.addAttribute("person", patient);
         model.addAttribute("doctors", doctors);
-        model.addAttribute("weekdays", Weekday.values());
-        model.addAttribute("appointment", new Appointment());
+        model.addAttribute("appointmentDto", new AppointmentDto());
         return "BookVisit";
     }
 
     @PostMapping("/appointment/book")
-    public String processBookAppointment(@ModelAttribute("appointment") Appointment appointment, 
-                                         @RequestParam("doctorId") Long doctorId,
+    public String processBookAppointment(@Valid @ModelAttribute("appointmentDto") AppointmentDto appointmentDto,
                                          BindingResult result, HttpSession session, Model model) {
         Person patient = getAuthorizedPatient(session);
         if (patient == null) {
@@ -117,14 +115,31 @@ public class PatientController {
             List<Doctor> doctors = doctorService.getAllDoctors();
             model.addAttribute("person", patient);
             model.addAttribute("doctors", doctors);
-            model.addAttribute("weekdays", Weekday.values());
             return "BookVisit";
         }
         
-        Doctor doctor = doctorService.getDoctorById(doctorId);
-        appointmentService.bookAppointment(appointment, doctor, (Patient) patient);
+        Doctor doctor = doctorService.getDoctorById(appointmentDto.getDoctorId());
+        if (doctor == null) {
+            model.addAttribute("error", "Selected doctor was not found");
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("person", patient);
+            model.addAttribute("doctors", doctors);
+            return "BookVisit";
+        }
         
-        return "redirect:/patient/appointments?success";
+        Appointment appointment = new Appointment();
+        appointment.setAppointmentTime(appointmentDto.getAppointmentTime());
+
+        try {
+            appointmentService.bookAppointment(appointment, doctor, (Patient) patient);
+            return "redirect:/patient/appointments?success";
+        } catch (RuntimeException e) {
+            model.addAttribute("error", e.getMessage());
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("person", patient);
+            model.addAttribute("doctors", doctors);
+            return "BookVisit";
+        }
     }
 
     @PostMapping("/appointments/{id}/cancel")
