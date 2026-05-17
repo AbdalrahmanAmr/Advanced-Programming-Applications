@@ -301,3 +301,192 @@ Unconditional classes:
 ----------------------
 
     None
+
+
+
+2026-05-17T01:12:20.478Z  INFO 1198460 --- [SB] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 48 class path changes (0 additions, 33 deletions, 15 modifications)
+2026-05-17T01:12:20.564Z  INFO 1198460 --- [SB] [Thread-35] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T01:12:20.612Z  INFO 1198460 --- [SB] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-17T01:12:20.712Z  INFO 1198460 --- [SB] [Thread-35] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:12:20.789Z  WARN 1198460 --- [SB] [Thread-35] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2026-05-17T01:12:20.790Z  INFO 1198460 --- [SB] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-05-17T01:12:20.807Z  INFO 1198460 --- [SB] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2026-05-17T01:12:24.376Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 1198460 (/app/target/classes started by jules in /app)
+2026-05-17T01:12:24.378Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
+2026-05-17T01:12:24.969Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T01:12:25.026Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 6 JPA repository interfaces.
+2026-05-17T01:12:25.523Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-17T01:12:25.532Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T01:12:25.532Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-17T01:12:25.582Z  INFO 1198460 --- [SB] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2026-05-17T01:12:25.582Z  INFO 1198460 --- [SB] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1188 ms
+2026-05-17T01:12:26.041Z  INFO 1198460 --- [SB] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T01:12:26.061Z  INFO 1198460 --- [SB] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-17T01:12:26.124Z  INFO 1198460 --- [SB] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T01:12:26.134Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-05-17T01:12:26.160Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection conn90: url=jdbc:h2:mem:devdb user=SA
+2026-05-17T01:12:26.161Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-05-17T01:12:26.169Z  WARN 1198460 --- [SB] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T01:12:26.177Z  INFO 1198460 --- [SB] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-10)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T01:12:26.757Z  INFO 1198460 --- [SB] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T01:12:26.855Z  INFO 1198460 --- [SB] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:12:27.033Z  WARN 1198460 --- [SB] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'authService': Error creating bean with name 'authService' defined in file [/app/target/classes/dev/mr3/sb/service/AuthService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-05-17T01:12:27.033Z  INFO 1198460 --- [SB] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:12:27.038Z  WARN 1198460 --- [SB] [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2026-05-17T01:12:27.038Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2026-05-17T01:12:27.048Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2026-05-17T01:12:27.051Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-05-17T01:12:27.067Z  INFO 1198460 --- [SB] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger :
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-17T01:12:27.092Z ERROR 1198460 --- [SB] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   :
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in dev.mr3.sb.service.AuthService required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+2026-05-17T01:20:08.363Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 1198460 (/app/target/classes started by jules in /app)
+2026-05-17T01:20:08.363Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
+2026-05-17T01:20:08.729Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T01:20:08.735Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2026-05-17T01:20:08.884Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-17T01:20:08.885Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T01:20:08.885Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-17T01:20:08.897Z  INFO 1198460 --- [SB] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2026-05-17T01:20:08.897Z  INFO 1198460 --- [SB] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 528 ms
+2026-05-17T01:20:09.026Z  INFO 1198460 --- [SB] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T01:20:09.028Z  INFO 1198460 --- [SB] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-17T01:20:09.037Z  INFO 1198460 --- [SB] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T01:20:09.039Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2026-05-17T01:20:09.041Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection conn100: url=jdbc:h2:mem:devdb user=SA
+2026-05-17T01:20:09.041Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2026-05-17T01:20:09.042Z  WARN 1198460 --- [SB] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T01:20:09.042Z  INFO 1198460 --- [SB] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-11)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T01:20:09.077Z  INFO 1198460 --- [SB] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T01:20:09.078Z  INFO 1198460 --- [SB] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:20:09.149Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-05-17T01:20:09.538Z  WARN 1198460 --- [SB] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration :
+
+Using generated security password: 36e57938-b6da-469e-9259-bb203fb0a993
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-17T01:20:09.541Z  INFO 1198460 --- [SB] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-17T01:20:09.619Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-05-17T01:20:09.685Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:devdb'
+2026-05-17T01:20:09.759Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-05-17T01:20:09.817Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-05-17T01:20:09.829Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : Started SbApplication in 1.546 seconds (process running for 3495.564)
+2026-05-17T01:20:09.834Z  INFO 1198460 --- [SB] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-05-17T01:20:11.169Z  INFO 1198460 --- [SB] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 33 class path changes (33 additions, 0 deletions, 0 modifications)
+2026-05-17T01:20:11.171Z  INFO 1198460 --- [SB] [Thread-39] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T01:20:11.179Z  INFO 1198460 --- [SB] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-17T01:20:11.196Z  INFO 1198460 --- [SB] [Thread-39] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:20:11.197Z  WARN 1198460 --- [SB] [Thread-39] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2026-05-17T01:20:11.198Z  INFO 1198460 --- [SB] [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2026-05-17T01:20:11.204Z  INFO 1198460 --- [SB] [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2026-05-17T01:20:11.604Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : Starting SbApplication using Java 21.0.10 with PID 1198460 (/app/target/classes started by jules in /app)
+2026-05-17T01:20:11.605Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : The following 1 profile is active: "dev"
+2026-05-17T01:20:11.944Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T01:20:11.963Z  INFO 1198460 --- [SB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 6 JPA repository interfaces.
+2026-05-17T01:20:12.134Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-17T01:20:12.138Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T01:20:12.138Z  INFO 1198460 --- [SB] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-17T01:20:12.150Z  INFO 1198460 --- [SB] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2026-05-17T01:20:12.151Z  INFO 1198460 --- [SB] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 542 ms
+2026-05-17T01:20:12.337Z  INFO 1198460 --- [SB] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T01:20:12.342Z  INFO 1198460 --- [SB] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-17T01:20:12.355Z  INFO 1198460 --- [SB] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T01:20:12.356Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2026-05-17T01:20:12.366Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection conn110: url=jdbc:h2:mem:devdb user=SA
+2026-05-17T01:20:12.367Z  INFO 1198460 --- [SB] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2026-05-17T01:20:12.368Z  WARN 1198460 --- [SB] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T01:20:12.369Z  INFO 1198460 --- [SB] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-12)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T01:20:12.658Z  INFO 1198460 --- [SB] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T01:20:12.697Z  INFO 1198460 --- [SB] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T01:20:13.049Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-05-17T01:20:13.184Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-05-17T01:20:13.215Z  WARN 1198460 --- [SB] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration :
+
+Using generated security password: 1478678c-9dfc-4e0c-bb03-7c9a6543a3f6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-17T01:20:13.217Z  INFO 1198460 --- [SB] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-17T01:20:13.423Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:devdb'
+2026-05-17T01:20:13.435Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-05-17T01:20:13.471Z  INFO 1198460 --- [SB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-05-17T01:20:13.485Z  INFO 1198460 --- [SB] [restartedMain] dev.mr3.sb.SbApplication                 : Started SbApplication in 1.955 seconds (process running for 3499.22)
+2026-05-17T01:20:13.490Z  INFO 1198460 --- [SB] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   ManagementWebSecurityAutoConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None

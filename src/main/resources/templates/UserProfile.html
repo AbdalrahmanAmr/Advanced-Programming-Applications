@@ -60,7 +60,8 @@
     <form method="post" th:action="${person.role == 'DOCTOR'} ? @{/doctor/profile} : @{/patient/profile}">
         <input type="hidden" name="username" th:value="${person.username}">
         <input type="hidden" name="password" th:value="${person.password}">
-        <input type="hidden" name="doctorUsername" th:value="${person.doctorUsername}">
+        <input th:if="${person.role == 'DOCTOR'}" type="hidden" name="doctorUsername" th:value="${person.doctorUsername}">
+        <input th:if="${person.role == 'PATIENT'}" type="hidden" name="patientUsername" th:value="${person.patientUsername}">
         <div class="form-group">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" th:value="${person.firstName}" minlength = "3" maxlength = "50" required>

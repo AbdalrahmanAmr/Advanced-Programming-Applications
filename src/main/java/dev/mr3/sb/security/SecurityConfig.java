@@ -45,7 +45,7 @@ public class SecurityConfig {
             })
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**", "/css/**", "/style.css", "/js/**").permitAll()
+                .requestMatchers("/", "/index", "/auth/**", "/css/**", "/style.css", "/js/**").permitAll()
                 .requestMatchers("/h2-console/**").access((authentication, context) ->
                         new org.springframework.security.authorization.AuthorizationDecision(h2ConsoleEnabled))
                 .requestMatchers("/api/reports/**").hasAnyRole("DOCTOR", "ADMIN")
